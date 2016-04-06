@@ -1,0 +1,1263 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Generator" content="CC1.0®">
+    <meta name="Author" content="CC.成琛">
+    <mate name="copyright" content="版权信息">
+    <title>C.C.成琛音乐网</title>
+    <meta name="Keywords" content="关键字,关键字">
+    <meta name="Description" content="网页内容描述信息">
+
+    <link rel="shortcut icon" href="ico.ico">   <!--添加PC网站ICO图标-->
+    <link rel="apple-touch-icon" href="ico.ico"> <!--添加移动网站ICO图标-->
+
+<!--CSS,JS-->
+<style>
+	*{margin:0; padding:0;}
+	body{font-size:12px; font-family:'微软雅黑';}
+	ul,li{list-style:none;}
+	a{text-decoration:none; color:#444;}
+	/*--顶部 start*/
+	.searchnav{width:100%; height:30px; background:#f9f9f9; border-bottom:1px solid #ccc;}	
+	.searchnav .topnav li:nth-child(n) a{float:left; color:#333; padding:7px 10px; }
+	.searchnav .topnav li:nth-child(7) a{color:red; border-bottom:2px solid red; font-weight:bold;}
+	.searchnav .topnav li:nth-child(n) a:hover{color:red;}
+	/*--顶部 end*/
+
+	/*--头部 start--*/
+	.header{width:1240px;height:100px; border-top:none; margin:0 auto; }
+	.header .logobox{float:left; margin-top:29px; }
+	.header .searchbox{height:39px;float:left; margin:29px 100px;}
+	.header .logobox .logo{width:103px; height:39px;}	
+	.header .searchbox .sear_title{display:inline-block; height:39px; width:120px;float:left;background:#33ad1f; font-size:20px; color:#FFF; line-height:39px; text-align:center; font-weight:bold;}
+	.header .searchbox .searchform{height:39px; float:left;}	
+	.header .searchbox .searchform .querybox{border:1px solid #33ad1f;}
+	.header .searchbox .searchform .querybox,.query,.querybox .btn{height:37px;}
+	.header .searchbox .searchform .querybox .query,.querybox .btn{outline:none; font-size:14px; border:none;}
+	.header .searchbox .searchform .querybox .query{width:470px; background:#FFF; text-indent:10px; color:#ccc; float:left;}
+	.header .searchbox .searchform .querybox .btn{ font-size:20px; background:#33ad1f;   font-weight:bold; color:#FFF;  float:left; padding:0 10px; cursor:pointer;}	
+	/*--头部 end--*/
+
+	/*--导航 start--*/
+	.nav{width:100%;background:#333; height:36px;}
+	.nav .mnav{width:1240px;background:#ccc; margin:0 auto; }
+	.nav .mnav .mlist{}
+	.nav .mnav .mlist li{float:left;}
+	.nav .mnav .mlist li:nth-child(n) a{display:block;padding:0 24px; height:36px; line-height:36px; color:#FFF; font-weight:bold; font-size:14px;}
+	.nav .mnav .mlist li:nth-child(1){position:relative;top:0; left:0;}
+	.nav .mnav .mlist li:nth-child(1) a{background:#28a913;}
+	.nav .mnav .mlist li a:hover{background:#757575;}		
+	.nav .mnav .mlist li .tip{display:block;background:green; position:absolute;top:-40px; left:18px;}
+	.nav .mnav .mlist li .tip .imgtip{display:block; width:40px; height:40px;}
+	.nav .mnav .minfo{float:right; width:290px;}
+	.nav .mnav .minfo .mact{float:left; }
+	.nav .mnav .minfo div:nth-child(1){float:left;}
+	.nav .mnav .minfo div:nth-child(2){float:right;}
+	.nav .mnav .minfo .mact span{color:#555; display:block;  float:left; height:36px; line-height:36px; margin-left:18px;}
+	.nav .mnav .minfo .mact .act_icon,.mact .null{transition:1s all; color:#FFF; height:36px;   line-height:36px; }
+	.nav .mnav .minfo .mact .act_icon{float:left; width:152px;display:inline-block;text-indent:40px; background:url("images/act_icon.png") no-repeat -8px 5px; }
+	.nav .mnav .minfo .mact .act_icon:hover,.null:hover{color:#b3b3b3;}
+	.nav .mnav .minfo .mact .act_icon:hover{background-position:-8px -35px;}
+	.nav .mnav .minfo .mact .null{background:#333; float:right;  }
+	.nav .mnav .minfo .mact .null:hover{color:#b3b3b3;  }
+	/*--导航 end--*/
+
+	/*--轮播图 start--*/
+	.banner{width:100%px;height:300px; background:#333; }
+	.banner .b_bg{width:100%px;height:300px;background:#4E4D9B;}
+	.banner .b_bg .b_con{width:1240px;height:300px; margin:0 auto; }
+	.banner .b_bg .b_con .b_focus{width:950px;height:300px;overflow:hidden;position:relative; float:left;}
+	.banner .b_bg .b_con .b_focus ul li{list-style:none;}
+
+	.banner .b_bg .b_con .b_focus .b_btn{width:136px;height:24px;position:absolute;left:411px;bottom:10px;}
+	.banner .b_bg .b_con .b_focus .b_btn ul{background:#000;display:inline-block;padding:7px 28px;opacity:0.4;filter:alpha(opacity=40);border-radius:12px;}
+	.banner .b_bg .b_con .b_focus .b_btn ul li{width:8px;height:8px;border:1px solid #fff;float:left;margin:0 3px;border-radius:4px;cursor: pointer;}			
+	.sel{background:#fff;}
+	.banner .b_bg .b_con .b_focus .b_ear{width:46px;height:70px;display:block;position:absolute;top:115px;background:url("images/icon.png") no-repeat;display:none;}
+	.banner .b_bg .b_con .b_focus:hover .b_ear{display:block;}			
+	.banner .b_bg .b_con .b_focus .pre{left:0; background-position:0 -133px;}
+	.banner .b_bg .b_con .b_focus .pre:hover{background-position:-133px 0;}
+	.banner .b_bg .b_con .b_focus .next{right:0;background-position:-52px -133px;}
+	.banner .b_bg .b_con .b_focus .next:hover{background-position:-185px 0;}
+
+		/*--右侧 start--*/
+	 .tag_area{width:290px; height:300px; background:#000; float:left;}
+	 .tag_area .m_tite{width:260px; height:41px; margin:10px auto; border-bottom:2px solid #333;}
+	 .tag_area .m_tite h2{font-size:20px; float:left; line-height:41px; color:#FFF; text-indent:26px; background:url("images/index_icon.png") -19px -367px  no-repeat; border-bottom:2px solid #28a913;}
+	 .tag_area .m_tite .tit_info{float:right;}
+	 .tag_area .m_tite .tit_info .more{display:block; height:41px; line-height:41px; color:#328e23;}
+	 .tag_area .hot_list{display:block; width:260px; margin:10px auto; background:red;}
+	 .tag_area .hot_list li{float:left; margin:8px 4px; text-align: -webkit-match-parent;}
+	 .tag_area .hot_list li a{display:block;padding:0 9px; color:#FFF; }
+	 .tag_area .hot_list li a:hover{background:#28a913; padding:0 9px; }
+		/*--右侧 start--*/
+	 /*--轮播图 end--*/
+
+	 /*--新碟推荐 start--*/
+	.newalbum_area{width:1240px;margin:10px auto;}	
+	.newalbum_area .m_tit{border-bottom:2px solid #e6e6e6;}	
+	.newalbum_area .m_tit h2,h2 .icon,.m_list li{float:left;}
+	.newalbum_area .m_tit h2{font-weight:500; font-size:20px; color:#333; line-height:41px; border-bottom:2px solid #28a913;}
+	.newalbum_area .m_tit h2 .icon{ width:20px; height:20px; background:url("icon/index_icon.png") repeat  -19px -344px; display:block; margin:10px 5px 0 0px;}
+
+	.newalbum_area .m_list{height:41px;}
+	.newalbum_area .m_list li a{color:#333;display:inline-block;font-size:14px; float:left;line-height:41px; text-align:center; height:41px; width:58px;}
+	.newalbum_area .m_list li span{display:inline-block; height:41px; line-height:41px; color:#b1b1b1;}
+	.newalbum_area .m_list li .sel{color:#28a913; display:block; font-size:16px;}
+	.newalbum_area .show{ height:267px; display:none;  margin-top:18px; overflow:hidden;}
+	.newalbum_area .rb{display:block;}	
+			
+	.newalbum_area .show .newalbum_list{margin-left:-35px;}
+	.newalbum_area .show .newalbum_list li .new_li{border:1px solid #e6e6e6; display:block; width:218px; height:218px; overflow:hidden;}
+	.newalbum_area .show .newalbum_list li .new_li .scaleimg{border:none; transform:scale(1); transition:1s all;}
+	.newalbum_area .show .newalbum_list li .new_li .scaleimg:hover{transform:scale(1.2);}
+	.newalbum_area .show .newalbum_list li{float:left; margin-left:35px;}	
+	.newalbum_area .show .newalbum_list li .album_info{padding-top:10px }
+	.newalbum_area .show .newalbum_list li .album_info .txta{display:block; color:#525252; font-size:16px; line-height:20px;}
+	.newalbum_area .show .newalbum_list li .album_info .txta:hover{color:#328e23}
+	.newalbum_area .show .newalbum_list li .album_info .singer_name{font-size:12px; color:#757575;}
+	/*--新碟推荐 end--*/
+	
+
+	/*作品展示区 start*/
+		/*左边*/
+	.workshow{width:1240px; margin:0 auto; overflow:hidden;}
+	.workshow .work_title{border-left:3px solid #72c02c; width:1200px;line-height:50px; text-indent:15px; color:#72c02c; font-size:18px; }
+	.workshow .w_head-images{width:1240px; background:green;}
+	.workshow .w_head-images .w_scrollers{width:546px; background:#ccc; height:330px; float:left; overflow:hidden;}
+	.workshow .w_head-images .w_scrollers a{display:block; position:relative; top:0; left:0; z-index:1px;}
+	.workshow .w_head-images .w_scrollers a img{display:block; width:546px;height:330px; transform:rotate(0deg);transition:all 1s;}
+	.workshow .w_head-images .w_scrollers a h3{position:absolute; bottom:-100px; left:0; z-index:2px; font-size:18px; padding:20px; line-height:30px; color:#FFF; background:rgba(0,0,0,0.5); transition:all 1s;}
+	.workshow .w_head-images .w_scrollers a:hover img{transform:rotate(10deg); transform:scale(1.2);}
+	.workshow .w_head-images .w_scrollers a:hover h3{bottom:0px;}
+	.workshow .w_head-images .w_scrollers a .w_top{display:inline-block;  font-size:12px; padding:3px 10px; background:#4ea374; position:absolute;top:0; left:0; z-index:3; border-radius:4px; color:#FFF;}
+
+		/*右边*/
+	.workshow .w_head-images .r_smaller-images{float:right; height:330px; width:690px; margin-right:-10px; }
+	.workshow .w_head-images .r_smaller-images .block{float:left; width:220px; height:160px; background:green; margin:0px 10px 12px 0px}
+	.workshow .w_head-images .r_smaller-images .wider{float:left; width:450px; height:160px; background:yellow; margin-left:0; }
+	.r_smaller-images .block{overflow:hidden; position:relative; top:0; left:0;}
+
+	.r_smaller-images .block .b_header_img{display:block; height:160px; position:relative; top:0; top:0;}	
+	.r_smaller-images .block .b_header_img .b_imga{ transform:rotate(0deg);transition:all 1s;}
+	.r_smaller-images .block .b_header_img .b_imga:hover{transform:rotate(10deg); transform:scale(1.2);}
+
+
+	.r_smaller-images .block .b_header_img .b_top{display:inline-block;  font-size:12px; padding:3px 10px; background:#4ea374; position:absolute;top:0px; left:0; z-index:3; border-radius:4px; color:#FFF;}
+	.r_smaller-images .block .b_header_img .b_funn{background:#ff6161;}
+
+	.r_smaller-images .block .b_header_img{width:100%; height:160px;}
+	.r_smaller-images .block .b_header_img .b_title{line-height:20px;background:red; position:absolute; bottom:-80px; left:0; font-size:12px; padding:10px; color:#FFF; background:rgba(0,0,0,0.5); transition:all 1s; width:200px; text-align:left;}	
+	.r_smaller-images .block .b_header_img .b_tit{width:100%;}
+	.r_smaller-images .block .b_header_img:hover .b_title{bottom:0;}
+	/*作品展示区 end*/
+
+</style>	
+</head>
+	<body>
+	<!--顶部 start-->	
+		<nav class="searchnav">
+			<ul class="topnav">
+				<li><a href="#">新闻</a></li>
+				<li><a href="#">网页</a></li>
+				<li><a href="#">微信</a></li>
+				<li><a href="#">问问</a></li>
+				<li><a href="#">图片</a></li>
+				<li><a href="#">视频</a></li>
+				<li><a href="#">音乐</a></li>
+				<li><a href="#">地图</a></li>
+				<li><a href="#">更多»</a></li>
+			</ul>
+		</nav>
+	<!--顶部 end-->
+	<!----头部 start---->		
+		<header class="header">
+			<figure class="logobox">
+				<img class="logo" src="images/logo.png" />
+			</figure>
+			<section class="searchbox">
+				<a class="sear_title" href="#">C.C成琛音乐</a>
+				<form class="searchform">
+					<section class="querybox">
+						<input class="query" name="query" type="text" placeholder="请输入搜索内容" />
+						<input class="btn" type="button" name="btn" value="音乐搜索" />
+					</section>
+				</form>
+			</section>
+		</header>
+	<!----头部 end---->
+	
+	<!--导航 start-->
+	<section class="nav">
+		<nav class="mnav">
+			<ul class="mlist">
+				<li>
+					<a class="aone" href="#">首页</a>
+					<i class="tip">
+						<img class="imgtip" src="images/tip.gif" width="40" height="40" alt="new" />
+					</i>
+				</li>
+				<li><a href="#">榜单</a></li>
+				<li><a href="#">歌手</a></li>
+				<li><a href="#">标签</a></li>
+				<li><a href="#">歌单</a></li>
+				<li><a href="#">专辑</a></li>
+				<li><a href="#">MV</a></li>
+			</ul>
+			<section class="minfo">
+				<div class="mact">
+					<a class="act_icon" href="#">中国好声音第四季</a>
+					<span>|</span>
+				</div>
+				<div class="mact">
+					<a class="null" href="#">好声音现场视频</a>						
+				</div>
+			</section>
+		</nav>
+	</section>
+	<!--导航 end-->
+
+	<!--轮播图 start-->
+	<div class="banner">
+		<div class="b_bg">
+			<div class="b_con">
+
+				<div class="b_focus">
+				<!--图片-->
+					<ul id="b_pic">
+						<li>
+							<a href="#">
+								<img src="images/banner-3.jpg" alt="" width="950" height="300" />
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<img src="images/banner-2.jpg" alt="" width="950" height="300" />
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<img src="images/banner-1.jpg" alt="" width="950" height="300" />
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<img src="images/banner-4.jpg" alt="" width="950" height="300" />
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<img src="images/banner-5.jpg" alt="" width="950" height="300" />
+							</a>
+						</li>
+					</ul>
+					<!--图片 end-->
+					<div class="b_btn">
+						<ul id="b_ul">
+							<li class="sel" data-color="#4E4D9B"></li>
+							<li data-color="#6766CE"></li>
+							<li data-color="#A136D2"></li>
+							<li data-color="#563481"></li>
+							<li data-color="#009DE4"></li>
+						</ul>
+					</div>
+					<a href="#" class="b_ear pre"></a>
+					<a href="#" class="b_ear next"></a>			
+				</div>
+			<style>
+		
+			</style>
+			<!--右侧 start-->
+			<section class="tag_area">
+				<div class="m_tite">
+					<h2>热门标签</h2>
+					<span class="tit_info">
+						<a href="#" class="more">更多></a>
+					</span>
+				</div>
+				<ul class="hot_list">
+					<li><a href="#">匆忙</a></li>
+					<li><a href="#">京剧</a></li>
+					<li><a href="#">昆剧</a></li>
+					<li><a href="#">豫剧</a></li>
+					<li><a href="#">秋天</a></li>
+					<li><a href="#">困难</a></li>
+					<li><a href="#">夏天</a></li>
+					<li><a href="#">烦恼</a></li>
+					<li><a href="#">春天</a></li>
+					<li><a href="#">日语歌手</a></li>
+					<li><a href="#">愁苦</a></li>
+					<li><a href="#">黄梅戏</a></li>
+					<li><a href="#">越剧</a></li>
+					<li><a href="#">晋剧</a></li>
+					<li><a href="#">梨园戏</a></li>
+					<li><a href="#">冬天</a></li>
+					<li><a href="#">HIP-HOP</a></li>
+					<li><a href="#">春运回家</a></li>
+					<li><a href="#">完美</a></li>
+					<li><a href="#">华语女歌手</a></li>
+					<li><a href="#">神曲</a></li>
+					<li><a href="#">孤单</a></li>
+					<li><a href="#">电影</a></li>
+					<li><a href="#">中国风</a></li>
+					<li><a href="#">疲惫时</a></li>
+					<li><a href="#">珍惜</a></li>
+					<li><a href="#">嘿咻</a></li>
+					<li><a href="#">日语</a></li>
+				</ul>
+			</section>
+			<!--右侧 end-->
+			</div>
+		</div>
+
+	</div>
+	<!--轮播图 end-->
+
+
+	<!--新碟推荐 start-->
+	 <div class="newalbum_area">	 
+	  <div class="m_tit">		
+	    <h2><i class="icon"></i>新碟推荐</h2>
+		<ul class="m_list">			
+			<li><a class="link sel" href="#">热门</a><span>|</span></li>
+			<li><a class="link" href="#">华语</a><span>|</span></li>
+			<li><a class="link" href="#">欧美</a><span>|</span></li>
+			<li><a class="link" href="#">日本</a><span>|</span></li>
+			<li><a class="link" href="#">韩国</a></li>	
+		</ul>
+		</div>
+		<div class="clear"></div>
+		
+		<!--1.新碟推荐 start-->
+		<div class="show rb">
+			<ul class="newalbum_list">
+				<li>
+					<a href="#" class="new_li">
+						<img class="scaleimg" src="http://imgcache.qq.com/music/photo/album_300/70/300_albumpic_1109370_0.jpg"  width="220" height="220" alt="中国好声音第四季" />
+					</a>
+					<div class="album_info">
+						<a class="album_name txta" href="#">中国好声音第四季 第7期</a>
+						<a class="singer_name txta" href="#">中国好声音</a>
+					</div>
+				</li>
+				<li>
+					<a href="#" class="new_li">
+						<img class="scaleimg" src="http://imgcache.qq.com/music/photo/album_300/17/300_albumpic_1032017_0.jpg"  width="220" height="220" alt="我们都一样" />
+					</a>
+					<div class="album_info">
+						<a class="album_name txta" href="#">我们都一样</a>
+						<a class="singer_name txta" href="#">陈学冬</a>
+					</div>
+				</li>
+				<li>
+					<a href="#" class="new_li">
+						<img class="scaleimg" src="http://imgcache.qq.com/music/photo/album_300/99/300_albumpic_1096499_0.jpg"  width="220" height="220" alt="IIII" />
+					</a>
+					<div class="album_info">
+						<a class="album_name txta" href="#">IIII</a>
+						<a class="singer_name txta" href="#">Stanfour</a>
+					</div>
+				</li>
+				<li>
+					<a href="#" class="new_li">
+						<img class="scaleimg" src="http://imgcache.qq.com/music/photo/album_300/80/300_albumpic_1089180_0.jpg"  width="220" height="220" alt="越笑越难过" />
+					</a>
+					<div class="album_info">
+
+						<a class="album_name txta" href="#">越笑越难过</a>
+						<a class="singer_name txta" href="#">庄心妍</a>
+					</div>
+				</li>
+				<li>
+					<a href="#" class="new_li">
+						<img class="scaleimg" src="http://imgcache.qq.com/music/photo/album_300/90/300_albumpic_1072990_0.jpg"  width="220" height="220" alt="风起时" />
+					</a>
+					<div class="album_info">
+						<a class="album_name txta" href="#">风起时</a>
+						<a class="singer_name txta" href="#">胡歌</a>
+					</div>
+				</li>				
+			</ul>
+		</div>
+		<!--2.新碟推荐 start-->
+		<div class="show hy">
+						<ul class="newalbum_list">
+				<li>
+					<a href="#" class="new_li">
+						<img class="scaleimg" src="http://imgcache.qq.com/music/photo/album_300/26/300_albumpic_1087526_0.jpg"  width="220" height="220" alt="一起Happy" />
+					</a>
+					<div class="album_info">
+						<a class="album_name txta" href="#">一起Happy</a>
+						<a class="singer_name txta" href="#">张震岳</a>
+					</div>
+				</li>
+				<li>
+					<a href="#" class="new_li">
+						<img class="scaleimg" src="http://imgcache.qq.com/music/photo/album_300/39/300_albumpic_1092639_0.jpg"  width="220" height="220" alt="曾经的少年" />
+					</a>
+					<div class="album_info">
+						<a class="album_name txta" href="#">曾经的少年</a>
+						<a class="singer_name txta" href="#">郑源</a>
+
+					</div>
+				</li>
+				<li>
+					<a href="#" class="new_li">
+						<img class="scaleimg" src="http://imgcache.qq.com/music/photo/album_300/6/300_albumpic_1093606_0.jpg"  width="220" height="220" alt="无处安放" />
+					</a>
+					<div class="album_info">
+						<a class="album_name txta" href="#">无处安放</a>
+						<a class="singer_name txta" href="#">汪峰</a>
+					</div>
+				</li>
+				<li>
+					<a href="#" class="new_li">
+						<img class="scaleimg" src="http://imgcache.qq.com/music/photo/album_300/76/300_albumpic_1097376_0.jpg"  width="220" height="220" alt="给的再多，不如懂我" />
+					</a>
+					<div class="album_info">
+						<a class="album_name txta" href="#">给的再多，不如懂我</a>
+						<a class="singer_name txta" href="#">后弦</a>
+					</div>
+				</li>
+				<li>
+					<a href="#" class="new_li">
+						<img class="scaleimg" src="http://imgcache.qq.com/music/photo/album_300/52/300_albumpic_1069152_0.jpg"  width="220" height="220" alt="千古" />
+					</a>
+					<div class="album_info">
+						<a class="album_name txta" href="#">千古</a>
+						<a class="singer_name txta" href="#">许嵩</a>
+					</div>
+				</li>				
+			</ul>
+		</div>
+		<!--3.新碟推荐 start-->
+		<div class="show hlw">
+						<ul class="newalbum_list">
+				<li>
+					<a href="#" class="new_li">
+						<img class="scaleimg" src="http://imgcache.qq.com/music/photo/album_300/30/300_albumpic_1067930_0.jpg"  width="220" height="220" alt="Bones" />
+					</a>
+					<div class="album_info">
+						<a class="album_name txta" href="#">Bones</a>
+						<a class="singer_name txta" href="#">Daniel Steinberg</a>
+					</div>
+				</li>
+				<li>
+					<a href="#" class="new_li">
+						<img class="scaleimg" src="http://imgcache.qq.com/music/photo/album_300/78/300_albumpic_1079978_0.jpg"  width="220" height="220" alt="Honeymoon" />
+					</a>
+					<div class="album_info">
+						<a class="album_name txta" href="#">Honeymoon</a>
+						<a class="singer_name txta" href="#">Lana Del Rey</a>
+
+					</div>
+				</li>
+				<li>
+					<a href="#" class="new_li">
+						<img class="scaleimg" src="http://imgcache.qq.com/music/photo/album_300/28/300_albumpic_1042228_0.jpg"  width="220" height="220" alt="I Am (Deluxe)" />
+					</a>
+					<div class="album_info">
+						<a class="album_name txta" href="#">I Am (Deluxe)</a>
+						<a class="singer_name txta" href="#">Leona Lewis</a>
+					</div>
+				</li>
+				<li>
+					<a href="#" class="new_li">
+						<img class="scaleimg" src="http://imgcache.qq.com/music/photo/album_300/0/300_albumpic_1068300_0.jpg"  width="220" height="220" alt="Avalanche" />
+					</a>
+					<div class="album_info">
+						<a class="album_name txta" href="#">Avalanche</a>
+						<a class="singer_name txta" href="#">Kalle Mattson</a>
+					</div>
+				</li>
+				<li>
+					<a href="#" class="new_li">
+						<img class="scaleimg" src="http://imgcache.qq.com/music/photo/album_300/69/300_albumpic_1066169_0.jpg"  width="220" height="220" alt="风起时" />
+					</a>
+					<div class="album_info">
+						<a class="album_name txta" href="#">Austin's Groove 2015</a>
+						<a class="singer_name txta" href="#">Kid Crème</a>
+					</div>
+				</li>				
+			</ul>
+		</div>
+		<!--4.新碟推荐 start-->
+		<div class="show byr">
+						<ul class="newalbum_list">
+				<li>
+					<a href="#" class="new_li">
+						<img class="scaleimg" src="http://imgcache.qq.com/music/photo/album_300/93/300_albumpic_1036093_0.jpg"  width="220" height="220" alt="長く短い祭" />
+					</a>
+					<div class="album_info">
+						<a class="album_name txta" href="#">長く短い祭</a>
+						<a class="singer_name txta" href="#">椎名林檎</a>
+					</div>
+				</li>
+				<li>
+					<a href="#" class="new_li">
+						<img class="scaleimg" src="http://imgcache.qq.com/music/photo/album_300/54/300_albumpic_1042154_0.jpg"  width="220" height="220" alt="ANTI-HERO" />
+					</a>
+					<div class="album_info">
+						<a class="album_name txta" href="#">ANTI-HERO</a>
+						<a class="singer_name txta" href="#">世界の終わり</a>
+
+					</div>
+				</li>
+				<li>
+					<a href="#" class="new_li">
+						<img class="scaleimg" src="http://imgcache.qq.com/music/photo/album_300/62/300_albumpic_1035462_0.jpg"  width="220" height="220" alt="ドリアン少年 （通常盤Type-A" />
+					</a>
+					<div class="album_info">
+						<a class="album_name txta" href="#">ドリアン少年(通常盤Type-A)</a>
+						<a class="singer_name txta" href="#">NMB48</a>
+					</div>
+				</li>
+				<li>
+					<a href="#" class="new_li">
+						<img class="scaleimg" src="http://imgcache.qq.com/music/photo/album_300/50/300_albumpic_1065950_0.jpg"  width="220" height="220" alt="Honey Come!!" />
+					</a>
+					<div class="album_info">
+						<a class="album_name txta" href="#">Honey Come!!</a>
+						<a class="singer_name txta" href="#">小倉唯</a>
+					</div>
+				</li>
+				<li>
+					<a href="#" class="new_li">
+						<img class="scaleimg" src="http://imgcache.qq.com/music/photo/album_300/76/300_albumpic_1052776_0.jpg"  width="220" height="220" alt="やさしい希望" />
+					</a>
+					<div class="album_info">
+						<a class="album_name txta" href="#">やさしい希望</a>
+						<a class="singer_name txta" href="#">早見沙織</a>
+					</div>
+				</li>				
+			</ul>
+		</div>
+		<!--5.新碟推荐 start-->
+		<div class="show will">
+						<ul class="newalbum_list">
+				<li>
+					<a href="#" class="new_li">
+						<img class="scaleimg" src="http://imgcache.qq.com/music/photo/album_300/45/300_albumpic_1070745_0.jpg"  width="220" height="220" alt="THE VOICE" />
+					</a>
+					<div class="album_info">
+						<a class="album_name txta" href="#">THE VOICE</a>
+						<a class="singer_name txta" href="#">SG Wannabe</a>
+
+					</div>
+				</li>
+				<li>
+					<a href="#" class="new_li">
+						<img class="scaleimg" src="http://imgcache.qq.com/music/photo/album_300/91/300_albumpic_1068091_0.jpg"  width="220" height="220" alt="Lion Heart - The 5th Album" />
+					</a>
+					<div class="album_info">
+						<a class="album_name txta" href="#">Lion Heart - The 5th Album</a>
+
+						<a class="singer_name txta" href="#">少女时代</a>
+
+					</div>
+				</li>
+				<li>
+					<a href="#" class="new_li">
+						<img class="scaleimg" src="http://imgcache.qq.com/music/photo/album_300/7/300_albumpic_1080107_0.jpg"  width="220" height="220" alt="A+" />
+					</a>
+					<div class="album_info">
+						<a class="album_name txta" href="#">A+</a>
+						<a class="singer_name txta" href="#">金泫雅</a>
+					</div>
+				</li>
+				<li>
+					<a href="#" class="new_li">
+						<img class="scaleimg" src="http://imgcache.qq.com/music/photo/album_300/17/300_albumpic_1080017_0.jpg"  width="220" height="220" alt="₩ & ONLY" />
+					</a>
+					<div class="album_info">
+						<a class="album_name txta" href="#">₩ & ONLY</a>
+						<a class="singer_name txta" href="#">Simon Dominic</a>
+					</div>
+				</li>
+				<li>
+					<a href="#" class="new_li">
+						<img class="scaleimg" src="http://imgcache.qq.com/music/photo/album_300/8/300_albumpic_1080008_0.jpg"  width="220" height="220" alt="Sorry" />
+					</a>
+					<div class="album_info">
+						<a class="album_name txta" href="#">Sorry</a>
+						<a class="singer_name txta" href="#">JUNIEL</a>
+					</div>
+				</li>				
+			</ul>
+		</div>
+	  </div>
+	  <!--新碟推荐 end-->	
+	
+	<!--作品展示区 start-->
+	<section class="workshow">
+		<!--h2 class="work_title">作品展示</h2-->
+		<article class="w_head-images">
+			<!--左边-->
+			<figure class="w_scrollers">				
+				<a href="#">
+					<span class="w_top">专栏</span>
+					<img src="http://d.36krcnd.com/nil_class/12f02d7f-4197-4b83-9e59-4513ea935b31/c29ff2022f8ddfb722a4a3cf05a585eb.jpg" width="480" height="330" alt="【36 氪·杭州精选】陪习大大阅完兵了，连载的好项目第三弹（游戏O2O什么的）也上膛了">
+					<h3>【36 氪·杭州精选】陪习大大阅完兵了，连载的好项目第三弹（游戏O2O什么的）也上膛了</h3>
+				</a>
+			</figure>
+			<!--右边-->
+
+			<section class="r_smaller-images">
+				<figure class="block wider">
+					<a href="#" class="b_header_img">
+						<span class="b_top b_funn">funn</span>
+						<img class="b_imga b_img" src="http://b.36krcnd.com/nil_class/447b02a6-a047-491c-b5de-bb1817ecf2e5/yestone_HD_1110440309.jpg" width="450" height="160" alt="【36 氪·杭州精选】陪习大大阅完兵了，连载的好项目第三弹（游戏O2O什么的）也上膛了">
+						<h3 class="b_title b_tit">“声音实验室”，给用户一个有趣更有故事的声音社区</h3>
+					</a>
+				</figure>
+				<figure class="block">	
+					<a href="#" class="b_header_img">
+						<span class="b_top">专栏</span>
+						<img class="b_imga" src="http://c.36krcnd.com/nil_class/562bdc5a-ce41-4006-a704-1b065346b598/_____2015-09-03_18.21.12.png" width="220" height="160" alt="【36 氪·杭州精选】陪习大大阅完兵了，连载的好项目第三弹（游戏O2O什么的）也上膛了">
+						<h3 class="b_title">行业理解决定商业模式，速派得选择这样做同城快运</h3>
+					</a>
+				</figure>
+				<figure class="block">
+					<a href="#" class="b_header_img">
+						<span class="b_top">专栏</span>
+						<img class="b_imga" src="https://krplus-cdn.b0.upaiyun.com/static-images/images/fd62918a.next.jpg" width="220" height="160" alt="【36 氪·杭州精选】陪习大大阅完兵了，连载的好项目第三弹（游戏O2O什么的）也上膛了">
+						<h3 class="b_title">一站式解决中文语义分析需求。</h3>
+					</a>
+				</figure>
+				<figure class="block">	
+					<a href="#" class="b_header_img">
+						<span class="b_top">专栏</span>
+						<img class="b_imga" src="http://c.36krcnd.com/nil_class/91e45749-800f-45b3-9d91-57178a6125ab/____meitu_0.jpg" width="220" height="160" alt="【36 氪·杭州精选】陪习大大阅完兵了，连载的好项目第三弹（游戏O2O什么的）也上膛了">
+						<h3 class="b_title">9点1氪：Mozilla终于推出iOS版Firefox，Amazon砸5亿美元收购一家视频处理公司</h3>
+					</a>
+				</figure>
+				<figure class="block">
+					<a href="#" class="b_header_img">
+						<span class="b_top">专栏</span>
+						<img class="b_imga" src="http://e.36krcnd.com/nil_class/625e1701-3266-46d2-8698-5178e9af385c/yestone_HD_1113849066.jpg" width="220" height="160" alt="【36 氪·杭州精选】陪习大大阅完兵了，连载的好项目第三弹（游戏O2O什么的）也上膛了">
+						<h3 class="b_title">产品不快，你就死定了！</h3>
+					</a>
+				</figure>
+			</section>
+		</article>
+	</section>
+	<!--作品展示区 end-->
+
+	<style>
+	/*--内地榜 start--*/
+	.bang_area{width:1240px; background:#ececec; margin:0 auto;}
+	.bang_area .bang_box{width:290px; float:left; margin:0 11px 0 9px;}	
+	.bang_area .bang_box .m_tite{width:290px; height:41px; margin:10px auto; border-bottom:2px solid red;}	
+
+	.bang_area .bang_box  .m_tite h2{font-size:20px; float:left; line-height:41px; color:#b38ad0; text-indent:42px; background:url("images/index_icon.png")  -7px -83px  no-repeat; border-bottom:2px solid #b38ad0;}
+	.bang_area .bang_box  .play_btn{float:left; display:block; height:26px; width:26px; background:red; margin:10px 10px;
+	background:url("images/btns.png") -18px -495px no-repeat;		}
+	.bang_area .bang_box  .play_btn:hover{background:url("images/btns.png") -78px -495px;}
+	.bang_area .bang_box  .m_tite .tit_info{float:right;}
+	.bang_area .bang_box  .m_tite .tit_info .more{display:block; height:41px; line-height:41px; color:#328e23;}
+	
+	.bang_area .bang_box  .bang_list li{width:285px; height:61px; background:#FFF; position:relative; top:0; left:0;  border-left:4px solid #FFF;}
+
+	.bang_area .bang_box .bang_list li:nth-child(2n){background:#efefef; transition:1s all; border-left:4px solid #efefef;}
+	.bang_area .bang_box .bang_list li:nth-child(1n):hover{background:#FFF; }
+
+	.bang_area .bang_box  .bang_list li:hover{ border-left:4px solid #28a913;}
+	.bang_area .bang_box  .bang_list li .num{ float:left; font-size:24px; font-weight:400; display:block; width:48px; height:61px;  line-height:61px; text-align:center; color:#c0c0c0;} 
+	.bang_area .bang_box  .bang_list li .num_01{color:#b38ad0;}
+	.bang_area .bang_box  .bang_list li .num_02{color:#b38ad0; opacity:0.8}
+	.bang_area .bang_box  .bang_list li .num_03{color:#b38ad0; opacity:0.4}
+	
+	.bang_area .bang_box  .bang_list li:hover .num{color:#328e23;}
+	.bang_area .bang_box  .bang_list li .song_name{display:inline-block; width:185px; height:24px; line-height:24px; 
+	overflow: hidden; font-family: 'microSoft YaHei'; font-size: 14px; line-height: 24px; text-overflow: ellipsis; white-space: nowrap; margin-top:6px;}
+	.bang_area .bang_box  .bang_list li .song_name a{display:block; color:#333; }
+	.bang_area .bang_box  .bang_list li:hover .song_name a{ color:#31a150; }
+	.bang_area .bang_box  .bang_list li .singer_name{display:inline-block;width:200px;font-family:'microSoft YaHei'; line-height:18px; color:#444; }
+
+	.bang_area .bang_box  .bang_list li .play_btn{width:26px; height:26px; display:block; position:absolute; top:7px; right:0;}
+	.bang_area .bang_box  .bang_list li:hover .play_btna{background:url("images/btns.png") -78px -495px;}
+	/*--内地榜 end--*/
+	
+	</style>
+	<!----内地榜 start---->
+	<section class="bang_area">
+		<!--1、内地榜 start-->
+		<aside class="bang_box bang_01">			
+			<div class="m_tite">
+				<h2>内地榜</h2>
+				<a href="#" class="play_btn" title="播放"></a>
+				<span class="tit_info">
+					<a href="#" class="more" title="更多">更多></a>
+				</span>
+			</div>
+			<ul class="bang_list">
+				<li>
+					<b class="num num_01">1</b>
+					<span class="song_name">
+						<a href="#">剩下的盛夏</a>
+					</span>
+					<span class="singer_name">
+						<a href="#">TFBOYS</a>
+					</span>
+					<a href="#" class="play_btn  play_btna"></a>	
+				</li>
+				<li>
+					<b class="num num_02">2</b>
+					<span class="song_name">
+						<a href="#">剩下的盛夏</a>
+					</span>
+					<span class="singer_name">
+						<a href="#">TFBOYS</a>
+					</span>
+					<a href="#" class="play_btn  play_btna"></a>	
+				</li>
+				<li>
+					<b class="num num_03">3</b>
+					<span class="song_name">
+						<a href="#">剩下的盛夏</a>
+					</span>
+					<span class="singer_name">
+						<a href="#">TFBOYS</a>
+					</span>
+					<a href="#" class="play_btn  play_btna"></a>	
+				</li>
+				<li>
+					<b class="num num_04">4</b>
+					<span class="song_name">
+						<a href="#">剩下的盛夏</a>
+					</span>
+					<span class="singer_name">
+						<a href="#">TFBOYS</a>
+					</span>
+					<a href="#" class="play_btn  play_btna"></a>	
+				</li>
+				<li>
+					<b class="num num_05">5</b>
+					<span class="song_name">
+						<a href="#">剩下的盛夏</a>
+					</span>
+					<span class="singer_name">
+						<a href="#">TFBOYS</a>
+					</span>
+					<a href="#" class="play_btn  play_btna"></a>	
+				</li>
+				<li>
+					<b class="num num_06">6</b>
+					<span class="song_name">
+						<a href="#">剩下的盛夏</a>
+					</span>
+					<span class="singer_name">
+						<a href="#">TFBOYS</a>
+					</span>
+					<a href="#" class="play_btn  play_btna"></a>	
+				</li>
+				<li>
+					<b class="num num_07">7</b>
+					<span class="song_name">
+						<a href="#">剩下的盛夏</a>
+					</span>
+					<span class="singer_name">
+						<a href="#">TFBOYS</a>
+					</span>
+					<a href="#" class="play_btn  play_btna"></a>	
+				</li>
+				<li>
+					<b class="num num_08">8</b>
+					<span class="song_name">
+						<a href="#">剩下的盛夏</a>
+					</span>
+					<span class="singer_name">
+						<a href="#">TFBOYS</a>
+					</span>
+					<a href="#" class="play_btn  play_btna"></a>	
+				</li>
+				<li>
+					<b class="num num_09">9</b>
+					<span class="song_name">
+						<a href="#">剩下的盛夏</a>
+					</span>
+					<span class="singer_name">
+						<a href="#">TFBOYS</a>
+					</span>
+					<a href="#" class="play_btn  play_btna"></a>	
+				</li>
+				<li>
+					<b class="num num_010">10</b>
+					<span class="song_name">
+						<a href="#">剩下的盛夏</a>
+					</span>
+					<span class="singer_name">
+						<a href="#">TFBOYS</a>
+					</span>
+					<a href="#" class="play_btn  play_btna"></a>	
+				</li>
+			</ul>			
+		</aside>
+		<!--1、内地榜 end-->
+
+		<!--2、内地榜 start-->
+		<aside class="bang_box bang_01">			
+			<div class="m_tite">
+				<h2>内地榜</h2>
+				<a href="#" class="play_btn" title="播放"></a>
+				<span class="tit_info">
+					<a href="#" class="more" title="更多">更多></a>
+				</span>
+			</div>
+			<ul class="bang_list">
+				<li>
+					<b class="num num_01">1</b>
+					<span class="song_name">
+						<a href="#">剩下的盛夏</a>
+					</span>
+					<span class="singer_name">
+						<a href="#">TFBOYS</a>
+					</span>
+					<a href="#" class="play_btn  play_btna"></a>	
+				</li>
+				<li>
+					<b class="num num_02">2</b>
+					<span class="song_name">
+						<a href="#">剩下的盛夏</a>
+					</span>
+					<span class="singer_name">
+						<a href="#">TFBOYS</a>
+					</span>
+					<a href="#" class="play_btn  play_btna"></a>	
+				</li>
+				<li>
+					<b class="num num_03">3</b>
+					<span class="song_name">
+						<a href="#">剩下的盛夏</a>
+					</span>
+					<span class="singer_name">
+						<a href="#">TFBOYS</a>
+					</span>
+					<a href="#" class="play_btn  play_btna"></a>	
+				</li>
+				<li>
+					<b class="num num_04">4</b>
+					<span class="song_name">
+						<a href="#">剩下的盛夏</a>
+					</span>
+					<span class="singer_name">
+						<a href="#">TFBOYS</a>
+					</span>
+					<a href="#" class="play_btn  play_btna"></a>	
+				</li>
+				<li>
+					<b class="num num_05">5</b>
+					<span class="song_name">
+						<a href="#">剩下的盛夏</a>
+					</span>
+					<span class="singer_name">
+						<a href="#">TFBOYS</a>
+					</span>
+					<a href="#" class="play_btn  play_btna"></a>	
+				</li>
+				<li>
+					<b class="num num_06">6</b>
+					<span class="song_name">
+						<a href="#">剩下的盛夏</a>
+					</span>
+					<span class="singer_name">
+						<a href="#">TFBOYS</a>
+					</span>
+					<a href="#" class="play_btn  play_btna"></a>	
+				</li>
+				<li>
+					<b class="num num_07">7</b>
+					<span class="song_name">
+						<a href="#">剩下的盛夏</a>
+					</span>
+					<span class="singer_name">
+						<a href="#">TFBOYS</a>
+					</span>
+					<a href="#" class="play_btn  play_btna"></a>	
+				</li>
+				<li>
+					<b class="num num_08">8</b>
+					<span class="song_name">
+						<a href="#">剩下的盛夏</a>
+					</span>
+					<span class="singer_name">
+						<a href="#">TFBOYS</a>
+					</span>
+					<a href="#" class="play_btn  play_btna"></a>	
+				</li>
+				<li>
+					<b class="num num_09">9</b>
+					<span class="song_name">
+						<a href="#">剩下的盛夏</a>
+					</span>
+					<span class="singer_name">
+						<a href="#">TFBOYS</a>
+					</span>
+					<a href="#" class="play_btn  play_btna"></a>	
+				</li>
+				<li>
+					<b class="num num_010">10</b>
+					<span class="song_name">
+						<a href="#">剩下的盛夏</a>
+					</span>
+					<span class="singer_name">
+						<a href="#">TFBOYS</a>
+					</span>
+					<a href="#" class="play_btn  play_btna"></a>	
+				</li>
+			</ul>			
+		</aside>
+		<!--2、内地榜 end-->
+
+		<!--3、内地榜 start-->
+		<aside class="bang_box bang_01">			
+			<div class="m_tite">
+				<h2>内地榜</h2>
+				<a href="#" class="play_btn" title="播放"></a>
+				<span class="tit_info">
+					<a href="#" class="more" title="更多">更多></a>
+				</span>
+			</div>
+			<ul class="bang_list">
+				<li>
+					<b class="num num_01">1</b>
+					<span class="song_name">
+						<a href="#">剩下的盛夏</a>
+					</span>
+					<span class="singer_name">
+						<a href="#">TFBOYS</a>
+					</span>
+					<a href="#" class="play_btn  play_btna"></a>	
+				</li>
+				<li>
+					<b class="num num_02">2</b>
+					<span class="song_name">
+						<a href="#">剩下的盛夏</a>
+					</span>
+					<span class="singer_name">
+						<a href="#">TFBOYS</a>
+					</span>
+					<a href="#" class="play_btn  play_btna"></a>	
+				</li>
+				<li>
+					<b class="num num_03">3</b>
+					<span class="song_name">
+						<a href="#">剩下的盛夏</a>
+					</span>
+					<span class="singer_name">
+						<a href="#">TFBOYS</a>
+					</span>
+					<a href="#" class="play_btn  play_btna"></a>	
+				</li>
+				<li>
+					<b class="num num_04">4</b>
+					<span class="song_name">
+						<a href="#">剩下的盛夏</a>
+					</span>
+					<span class="singer_name">
+						<a href="#">TFBOYS</a>
+					</span>
+					<a href="#" class="play_btn  play_btna"></a>	
+				</li>
+				<li>
+					<b class="num num_05">5</b>
+					<span class="song_name">
+						<a href="#">剩下的盛夏</a>
+					</span>
+					<span class="singer_name">
+						<a href="#">TFBOYS</a>
+					</span>
+					<a href="#" class="play_btn  play_btna"></a>	
+				</li>
+				<li>
+					<b class="num num_06">6</b>
+					<span class="song_name">
+						<a href="#">剩下的盛夏</a>
+					</span>
+					<span class="singer_name">
+						<a href="#">TFBOYS</a>
+					</span>
+					<a href="#" class="play_btn  play_btna"></a>	
+				</li>
+				<li>
+					<b class="num num_07">7</b>
+					<span class="song_name">
+						<a href="#">剩下的盛夏</a>
+					</span>
+					<span class="singer_name">
+						<a href="#">TFBOYS</a>
+					</span>
+					<a href="#" class="play_btn  play_btna"></a>	
+				</li>
+				<li>
+					<b class="num num_08">8</b>
+					<span class="song_name">
+						<a href="#">剩下的盛夏</a>
+					</span>
+					<span class="singer_name">
+						<a href="#">TFBOYS</a>
+					</span>
+					<a href="#" class="play_btn  play_btna"></a>	
+				</li>
+				<li>
+					<b class="num num_09">9</b>
+					<span class="song_name">
+						<a href="#">剩下的盛夏</a>
+					</span>
+					<span class="singer_name">
+						<a href="#">TFBOYS</a>
+					</span>
+					<a href="#" class="play_btn  play_btna"></a>	
+				</li>
+				<li>
+					<b class="num num_010">10</b>
+					<span class="song_name">
+						<a href="#">剩下的盛夏</a>
+					</span>
+					<span class="singer_name">
+						<a href="#">TFBOYS</a>
+					</span>
+					<a href="#" class="play_btn  play_btna"></a>	
+				</li>
+			</ul>			
+		</aside>
+		<!--3、内地榜 end-->
+
+		<!--4、内地榜 start-->
+		<aside class="bang_box bang_01">			
+			<div class="m_tite">
+				<h2>内地榜</h2>
+				<a href="#" class="play_btn" title="播放"></a>
+				<span class="tit_info">
+					<a href="#" class="more" title="更多">更多></a>
+				</span>
+			</div>
+			<ul class="bang_list">
+				<li>
+					<b class="num num_01">1</b>
+					<span class="song_name">
+						<a href="#">剩下的盛夏</a>
+					</span>
+					<span class="singer_name">
+						<a href="#">TFBOYS</a>
+					</span>
+					<a href="#" class="play_btn  play_btna"></a>	
+				</li>
+				<li>
+					<b class="num num_02">2</b>
+					<span class="song_name">
+						<a href="#">剩下的盛夏</a>
+					</span>
+					<span class="singer_name">
+						<a href="#">TFBOYS</a>
+					</span>
+					<a href="#" class="play_btn  play_btna"></a>	
+				</li>
+				<li>
+					<b class="num num_03">3</b>
+					<span class="song_name">
+						<a href="#">剩下的盛夏</a>
+					</span>
+					<span class="singer_name">
+						<a href="#">TFBOYS</a>
+					</span>
+					<a href="#" class="play_btn  play_btna"></a>	
+				</li>
+				<li>
+					<b class="num num_04">4</b>
+					<span class="song_name">
+						<a href="#">剩下的盛夏</a>
+					</span>
+					<span class="singer_name">
+						<a href="#">TFBOYS</a>
+					</span>
+					<a href="#" class="play_btn  play_btna"></a>	
+				</li>
+				<li>
+					<b class="num num_05">5</b>
+					<span class="song_name">
+						<a href="#">剩下的盛夏</a>
+					</span>
+					<span class="singer_name">
+						<a href="#">TFBOYS</a>
+					</span>
+					<a href="#" class="play_btn  play_btna"></a>	
+				</li>
+				<li>
+					<b class="num num_06">6</b>
+					<span class="song_name">
+						<a href="#">剩下的盛夏</a>
+					</span>
+					<span class="singer_name">
+						<a href="#">TFBOYS</a>
+					</span>
+					<a href="#" class="play_btn  play_btna"></a>	
+				</li>
+				<li>
+					<b class="num num_07">7</b>
+					<span class="song_name">
+						<a href="#">剩下的盛夏</a>
+					</span>
+					<span class="singer_name">
+						<a href="#">TFBOYS</a>
+					</span>
+					<a href="#" class="play_btn  play_btna"></a>	
+				</li>
+				<li>
+					<b class="num num_08">8</b>
+					<span class="song_name">
+						<a href="#">剩下的盛夏</a>
+					</span>
+					<span class="singer_name">
+						<a href="#">TFBOYS</a>
+					</span>
+					<a href="#" class="play_btn  play_btna"></a>	
+				</li>
+				<li>
+					<b class="num num_09">9</b>
+					<span class="song_name">
+						<a href="#">剩下的盛夏</a>
+					</span>
+					<span class="singer_name">
+						<a href="#">TFBOYS</a>
+					</span>
+					<a href="#" class="play_btn  play_btna"></a>	
+				</li>
+				<li>
+					<b class="num num_010">10</b>
+					<span class="song_name">
+						<a href="#">剩下的盛夏</a>
+					</span>
+					<span class="singer_name">
+						<a href="#">TFBOYS</a>
+					</span>
+					<a href="#" class="play_btn  play_btna"></a>	
+				</li>
+			</ul>			
+		</aside>
+		<!--4、内地榜 end-->
+	</section>
+	<!--内地榜 end-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--新碟推荐引用js start-->
+<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		//$("id").查找("li标签下的 a标签").滑动(方法(){
+		$(".newalbum_area").find("li .link").hover(function(){
+			//$("li标签下的 a标签").删除类("类名");
+			$("li .link").removeClass("sel");
+			//("当前li下的a").添加类("类名");
+			$(this).addClass("sel");
+			//声明 变量 = $("当前li下的a").父节点().下标()
+			var _index = $(this).parent().index();
+			//$("id").隐藏().数组(下标).显示();
+			$(".show").hide().eq(_index).show();
+		});
+	});
+</script> 
+<!--新碟推荐引用js end-->
+
+<!--轮展图切换 引入jQuery类库 start-->
+<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+
+		var index = 0;
+		// 轮展图切换
+		$("#b_ul").find("li").mouseover(function(){
+			// 控制小按钮
+			$(this).addClass("sel").siblings().removeClass("sel");
+			// 获取当前选中的索引
+			var _index = $(this).index();
+
+			index = _index;
+
+			// 联动切换
+			$("#b_pic").find("li").eq(_index).fadeIn("slow").siblings().hide();
+			// 联动背景颜色
+			var background = $(this).data("color");
+			$(this).parents(".b_bg").css("background",background);
+		});
+
+		// 下一张
+		$(".next").click(function(){
+			index++;
+			var length = $("#b_pic").find("li").length;
+			if(index >= length){
+				index = 0;
+			}
+			// 切换背景颜色
+			var background = $("#b_ul").find("li").eq(index).data("color");
+			$(this).parents(".b_bg").css("background",background);
+			// 联动小按钮
+			$("#b_ul").find("li").eq(index).addClass("sel").siblings().removeClass("sel");
+			// 图片联动
+			$("#b_pic").find("li").eq(index).fadeIn("slow").siblings().hide();
+		});
+
+		// 上一张
+		$(".pre").click(function(){
+			index--;
+			var length = $("#b_pic").find("li").length;
+			if(index < 0){
+				index = length - 1;
+			}
+			// 切换背景颜色
+			var background = $("#b_ul").find("li").eq(index).data("color");
+			$(this).parents(".b_bg").css("background",background);
+			// 联动小按钮
+			$("#b_ul").find("li").eq(index).addClass("sel").siblings().removeClass("sel");
+			// 图片联动
+			$("#b_pic").find("li").eq(index).fadeIn("slow").siblings().hide();
+		});
+
+		// 自动切换
+		setInterval(function(){
+			index++;
+			var length = $("#b_pic").find("li").length;
+			if(index >= length){
+				index = 0;
+			}
+			// 切换背景颜色
+			var background = $("#b_ul").find("li").eq(index).data("color");
+			$(".b_bg").css("background",background);
+			// 联动小按钮
+			$("#b_ul").find("li").eq(index).addClass("sel").siblings().removeClass("sel");
+			// 图片联动
+			$("#b_pic").find("li").eq(index).fadeIn("slow").siblings().hide();
+		},3000);
+
+	});
+</script>
+<!--轮展图切换 引入jQuery类库 end-->
+	</body>
+</html>

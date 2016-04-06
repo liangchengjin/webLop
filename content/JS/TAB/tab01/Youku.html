@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Generator" content="CC1.0®">
+    <meta name="Author" content="CC.成琛">
+    <mate name="copyright" content="版权信息">
+    <title>网站标题</title>
+    <meta name="Keywords" content="关键字,关键字">
+    <meta name="Description" content="网页内容描述信息">
+
+    <link rel="shortcut icon" href="ico.ico">   <!--添加PC网站ICO图标-->
+    <link rel="apple-touch-icon" href="ico.ico"> <!--添加移动网站ICO图标-->
+
+<!--CSS,JS-->
+<style>
+	*{margin:0; padding:0;}
+	body{font-size:12px; font-family:'微软雅黑';}
+	ul,li{list-style:none;}
+	.clear{clear:both;}
+
+	.youku{width:860px;margin:150px auto;}	
+	.youku ul li{font-size:14px; float:left; height:30px; line-height:30px; text-align:center; padding:0 20px;}
+	.youku ul .sel{background:#06a7e1; color:#FFF;  display:block;}
+
+	.youku .show{width:860px; height:150px; background:#FC0; display:none;}
+	.youku .rb{background:#CCCCFF; display:block;}
+	.youku .hy{background:#ff0099;}
+	.youku .hlw{background:#51ac7a;}
+	.youku .byr{background:#cccc00;}
+	.youku .will{background:#6600cc;}
+</style>	
+</head>
+	<body>	  
+	  <div class="youku">
+		<ul>
+			<li class="sel">热播大片</li>
+			<li>华语精选</li>
+			<li>好莱坞精选</li>
+			<li>变异人的世界</li>
+			<li>即将上线</li>
+		</ul>
+		<div class="clear"></div>
+		<div class="show rb"></div>
+		<div class="show hy"></div>
+		<div class="show hlw"></div>
+		<div class="show byr"></div>
+		<div class="show will"></div>
+	  </div>
+	  
+	  <!--引用js-->
+	  <script type="text/javascript" src="js/jquery.js"></script>
+	  <script type="text/javascript">
+		$(function(){
+			//$("id名").查找("li元素").点击(方法(){
+			$(".youku").find("li").hover(function(){
+				//(当前).添加类("类名").相邻元素().删除类("类名")
+				$(this).addClass("sel").siblings().removeClass("sel");				
+				// 变量 = $(当前).自定义()
+				var _index =$(this).index(); 
+				//("id名").隐藏().下标(_index).显示();
+				$(".show").hide().eq(_index).show();
+			});
+
+		});
+	  </script>
+	</body>
+</html>

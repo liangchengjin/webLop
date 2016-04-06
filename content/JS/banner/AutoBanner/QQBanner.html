@@ -1,0 +1,163 @@
+<!doctype html>
+<html>
+	<head>
+		<!--声明当前页面的编码集：charset=gbk,gb2312(中文编码)，utf-8国际编码-->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<!--当前页面的三要素-->
+		<title>腾讯课堂banner图切换 - JiEGE</title>
+		<meta name="Keywords" content="关键词,关键词">
+		<meta name="description" content="">
+
+		<!--css,js-->
+		<style type="text/css">
+			*{margin:0;padding:0;}
+			img{border:0;}
+			.banner{width:100%;height:300px;}
+			.banner .b_bg{width:100%;height:300px;background:#4E4D9B;}
+			.banner .b_bg .b_con{width:1200px;height:300px;margin:0 auto;}
+			.banner .b_bg .b_con .b_focus{width:760px;height:300px;margin:0 auto;overflow:hidden;position:relative;}
+			.banner .b_bg .b_con .b_focus ul li{list-style:none;}
+
+			.banner .b_bg .b_con .b_focus .b_btn{width:136px;height:24px;position:absolute;left:300px;bottom:10px;}
+			.banner .b_bg .b_con .b_focus .b_btn ul{background:#000;display:inline-block;padding:7px 28px;opacity:0.4;filter:alpha(opacity=40);border-radius:12px;}
+			.banner .b_bg .b_con .b_focus .b_btn ul li{width:8px;height:8px;border:1px solid #fff;float:left;margin:0 3px;border-radius:4px;cursor: pointer;}
+			
+			.sel{background:#fff;}
+
+			.banner .b_bg .b_con .b_focus .b_ear{width:46px;height:70px;display:block;position:absolute;top:115px;background:url("images/icon.png") no-repeat;display:none;}
+			.banner .b_bg .b_con .b_focus:hover .b_ear{display:block;}			
+			.banner .b_bg .b_con .b_focus .pre{left:0; background-position:0 -133px;}
+			.banner .b_bg .b_con .b_focus .pre:hover{background-position:-133px 0;}
+			.banner .b_bg .b_con .b_focus .next{right:0;background-position:-52px -133px;}
+			.banner .b_bg .b_con .b_focus .next:hover{background-position:-185px 0;}
+
+
+		</style>
+
+	</head>
+<body>
+	
+	<div class="banner">
+		<div class="b_bg">
+			<div class="b_con">
+
+				<div class="b_focus">
+				<!--图片-->
+					<ul id="b_pic">
+						<li>
+							<a href="#">
+								<img src="images/banner-3.jpg" alt="" width="760" height="300" />
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<img src="images/banner-2.jpg" alt="" width="760" height="300" />
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<img src="images/banner-1.jpg" alt="" width="760" height="300" />
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<img src="images/banner-4.jpg" alt="" width="760" height="300" />
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<img src="images/banner-5.jpg" alt="" width="760" height="300" />
+							</a>
+						</li>
+					</ul>
+					<!--图片 end-->
+					<div class="b_btn">
+						<ul id="b_ul">
+							<li class="sel" data-color="#4E4D9B"></li>
+							<li data-color="#6766CE"></li>
+							<li data-color="#A136D2"></li>
+							<li data-color="#563481"></li>
+							<li data-color="#009DE4"></li>
+						</ul>
+					</div>
+					<a href="#" class="b_ear pre"></a>
+					<a href="#" class="b_ear next"></a>
+				</div>
+			</div>
+		</div>
+	</div>
+<!--引入jQuery类库-->
+<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+
+		var index = 0;
+		// 轮展图切换
+		$("#b_ul").find("li").mouseover(function(){
+			// 控制小按钮
+			$(this).addClass("sel").siblings().removeClass("sel");
+			// 获取当前选中的索引
+			var _index = $(this).index();
+
+			index = _index;
+
+			// 联动切换
+			$("#b_pic").find("li").eq(_index).fadeIn("slow").siblings().hide();
+			// 联动背景颜色
+			var background = $(this).data("color");
+			$(this).parents(".b_bg").css("background",background);
+		});
+
+		// 下一张
+		$(".next").click(function(){
+			index++;
+			var length = $("#b_pic").find("li").length;
+			if(index >= length){
+				index = 0;
+			}
+			// 切换背景颜色
+			var background = $("#b_ul").find("li").eq(index).data("color");
+			$(this).parents(".b_bg").css("background",background);
+			// 联动小按钮
+			$("#b_ul").find("li").eq(index).addClass("sel").siblings().removeClass("sel");
+			// 图片联动
+			$("#b_pic").find("li").eq(index).fadeIn("slow").siblings().hide();
+		});
+
+		// 上一张
+		$(".pre").click(function(){
+			index--;
+			var length = $("#b_pic").find("li").length;
+			if(index < 0){
+				index = length - 1;
+			}
+			// 切换背景颜色
+			var background = $("#b_ul").find("li").eq(index).data("color");
+			$(this).parents(".b_bg").css("background",background);
+			// 联动小按钮
+			$("#b_ul").find("li").eq(index).addClass("sel").siblings().removeClass("sel");
+			// 图片联动
+			$("#b_pic").find("li").eq(index).fadeIn("slow").siblings().hide();
+		});
+
+		// 自动切换
+		setInterval(function(){
+			index++;
+			var length = $("#b_pic").find("li").length;
+			if(index >= length){
+				index = 0;
+			}
+			// 切换背景颜色
+			var background = $("#b_ul").find("li").eq(index).data("color");
+			$(".b_bg").css("background",background);
+			// 联动小按钮
+			$("#b_ul").find("li").eq(index).addClass("sel").siblings().removeClass("sel");
+			// 图片联动
+			$("#b_pic").find("li").eq(index).fadeIn("slow").siblings().hide();
+		},3000);
+
+	});
+
+</script>
+</body>
+</html>

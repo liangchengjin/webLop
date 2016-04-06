@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Generator" content="CC1.0®">
+    <meta name="Author" content="CC.成琛">
+    <mate name="copyright" content="版权信息">
+    <title>用户注册表单</title>
+    <meta name="Keywords" content="关键字,关键字">
+    <meta name="Description" content="网页内容描述信息">
+
+    <link rel="shortcut icon" href="ico.ico">   <!--添加PC网站ICO图标-->
+    <link rel="apple-touch-icon" href="ico.ico"> <!--添加移动网站ICO图标-->
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
+
+<!--CSS,JS-->
+<style>
+	*{margin:0; padding:0;}
+	body{font-size:12px; font-family:'微软雅黑'; background:#000;}
+	a{text-decoration:none;}
+	input{ border-radius:4px; height:40px; border:none; color:#ccc; background:#FFF; font-size:16px; text-indent:10px;outline:none;}
+	
+
+	/*!--标题 start--*/
+	.header{width:100%; background:#333;}
+	.header h1{width:100%; background:#333; line-height:100px; color:#469569; font-weight:500px; text-align:center; }
+	/*!--标题 end--*/
+	
+	.main{width:100%; height:background:#ccc;}
+	.main .m_content{width:1200px; margin:50px auto; }
+	.main .m_content .m_title{width:1200px; height:50px; margin:0 auto;}
+	.main .m_content .m_title h2 a{display:inline-block; float:left; line-height:50px; padding:0px 50px; color:#FFF; font-weight:500px;}
+	.main .m_content .m_title .m_ress{background:#00cc00;}
+	.main .m_content .m_title .m_loading{background:#ffcc00; }
+
+
+	.main .m_content .for_con{width:1200px; background:#333; border-radius:4px; overflow:hidden;}
+	.main .m_content .for_con .form{}
+	.main .m_content .for_con .form .form_left,.form .form_right{width:550px; float:left; background:#333;}
+	.main .m_content .for_con .form .form_right{ float:right; position:relative;top:0; left:0;}
+	.main .m_content .for_con .form p{font-size:16px; color:#398047; line-height:40px; text-indent:10px;}
+	.main .m_content .for_con .form p input{width:500px;}
+
+	.main .m_content .for_con .form  .set{width:500px; height:50px; margin:20px 10px; height:100px; }
+	.main .m_content .for_con .form  .set .set_sex{width:220px; height:50px;float:left;}
+	.main .m_content .for_con .form  .set .set_sex .lab{border-radius:4px;}
+	.main .m_content .for_con .form  .set .set_sex .lab label{margin-right:10px; }
+	.main .m_content .for_con .form  .set .set_sex .lab label .sexa,label .sexb{width:10px; height:10px; margin-right:10px;}
+	.main .m_content .for_con .form  .set .set_age{width:150px; height:50px;float:right; margin-right:25px;}
+	.main .m_content .for_con .form  .set .set_age .aside_text{text-indent:0px;}
+	.main .m_content .for_con .form  .set .set_left{width:150px; height:50px;float:left; margin-right:25px; 
+	
+	position: relative;
+    top: 0;
+    left: 0;
+	
+	}
+							
+	.set{width:500px;height:300px; }
+	.set .set_center{float:left; margin-left:10px;}
+	.set .set_center .reg{ position:absolute; top:40px; left:-4px; float:left;background:#ccc;margin-left:22px; text-indent:0px; width:80px; color:#333; text-align:center; font-size:30px;}
+	.set .set_center .upreg{color:#00cc00; padding:25px 10px; display:block; position:absolute; top:37px; left:94px;}			
+	
+	.idtype{border:1px solid green; background:#FFF; width:162px; height:40px;border-radius:4px; overflow:hidden; }
+	.idtype .idt{width:100px; float:left; background:none; color:#ccc;}
+	.idtype .alink{ height:40px; width:60px; display:block;float:right; font-size:16px; background:#367a3c; color:#fff; line-height:40px; text-align:center;}
+	.che .checkbox{display:inline-block; background:none; height:20px; height:20px; float:left; margin:9px -243px 12px -229px;}
+
+
+	
+	.clear(clear:both;);
+</style>	
+</head>
+	<body>
+	  <!--标题 start-->	
+	  <header class="header">
+		 <h1>用户注册中心</h1>
+	  </header>
+	  <!--标题 end-->
+
+	  <!--内容 start-->	  
+	  <main class="main">
+		 <article class="m_content">
+			<header class="m_title">
+				<h2><a class="m_ress" href="#">注册<a></h2>
+				<h2><a class="m_loading" href="#">用户登陆<a></h2>
+			</header>
+			
+			<section class="for_con">
+			
+				<form class="form">
+					<aside class="form_left">
+						<p>账号设置</p>
+						<p><input type="text" class="userid" required="required" name="userid" placeholder="邮箱/手机号"></p>
+						<p>用户名设置</p>
+						<p><input type="text" class="username" name="username" placeholder="用户名设置"></p>
+						<p>设置密码</p>
+						<p><input type="password" class="password"name="password" placeholder="设置密码"></p>
+						<p>确认密码</p>
+						<p><input type="password" class="password"name="password" placeholder="确认密码"></p>
+						
+						<figure class="set">
+							<aside class="set_sex">
+								<p class="aside_text txtsex">性别</p>
+								<p class="lab">
+									<label><input type="radio" class="sexa" name="sex" value="男">男</label>
+									<label><input type="radio" class="sexa" name="sex" value="女">女</label>
+									
+								</p>
+							</aside>							
+							<aside class="set_age">	
+								<p class="aside_text">年龄</p>
+								<input type="text" class="age" name="age" value="年龄">
+							</aside>
+						</figure>						
+						<p>国家地区</p>
+						<p><input type="text" class="addr"name="addr" placeholder="国家地区"></p>							
+
+						<figure class="set">	
+							<aside class="set_age set_left">	
+								<p class="aside_text">验证码</p>
+								<input type="text" class="age" name="age" value="验证码">
+							</aside>
+							<aside class="set_age set_left set_center ">								
+								<input type="text" class="reg" name="age" value="1234" disabled="disabled"/><a class="upreg" href="javascript:void(0)"><sub>换一张</sub></a>
+							</aside>
+						</figure>
+						<p class="che">
+							<label class="set_check">
+								<input class="checkbox" type="checkbox"/>我已同意服务条款
+							</label>
+						</p>
+					</aside>
+
+
+					<!--右边-->
+					<aside class="form_right">
+						<p>公司单位全称</p>
+						<p><input type="text" class="dt"name="dt" placeholder="公司单位全称"></p>
+						<p>公司地址</p>
+						<p><input type="text" class="addres"name="addres" placeholder="公司地址"></p>
+						<figure class="set">
+							<aside class="set_age set_left">	
+								<p class="aside_text">职位</p>
+								<input type="text" class="age" name="age" value="职位">
+							</aside>
+														
+							<aside class="set_age">	
+								<p class="aside_text">月薪</p>
+								<input type="text" class="age" name="age" value="月薪">
+							</aside>
+						</figure>
+						<figure class="set">
+							<aside class="set_age set_left">	
+								<p class="aside_text">证件类型</p>								
+								<section class="idtype">
+									<input type="text" class="idt" name="id" value="证件类型">
+									<a class="alink"href="javascript:void(0)">选择</a>
+								</section>
+							</aside>
+													
+							<aside class="set_age">	
+								<p class="aside_text">证件号码</p>
+								<input type="text" class="age" name="id" value="证件号码">
+							</aside>
+						</figure>
+						<p>电子邮箱</p>
+						<p><input type="mail" class="main" name="main" placeholder="E-mail"></p>
+						<p>联系方式</p>
+						<p><input type="tel" class="main" name="main" placeholder="联系方式"></p>
+				<style>
+					.subreg{margin-top:-10px; width:100px;}
+					.sub{margin-top:88px; background:#009900; height:50px; color:#FFF; }
+				</style>
+						<p class="subreg"><input class="sub" type="submit" value="注册"/></p>
+					</aside>
+					
+				</form>
+
+			</section>
+			
+		 </article>
+		 
+	  </main>
+	  <!--内容 start-->
+	  
+	  
+	  
+	  
+	  
+	  
+	</body>
+</html>

@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">   
+    <meta name="Author" content="CC">
+    <meta name="copyright" content="版权信息">
+    <title>桌面级系统-便签 cc制作</title>
+    <meta name="Keywords" content="关键字,关键字">
+    <meta name="Description" content="网页内容描述信息">
+    <!--移动端-->
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
+
+    <!--link rel="shortcut icon" href="ico.ico">   --添加PC网站ICO图标-->
+    <!--link rel="apple-touch-icon" href="ico.ico"> --添加移动网站ICO图标-->
+
+<!--CSS,JS 引入-->
+<style>
+    *{margin:0; padding:0;}
+    body{font-size:12px; font-family:'微软雅黑';color:#666; background:url("images/bg.jpg") no-repeat center/cover fixed;zoom: 1;}
+			
+    /*desk start*/
+    .desk{width:200px;background:#fff;position:absolute;display:none;z-index:2;box-shadow:1px 1px 1px 1px #000;}
+    .desk ul li{border-bottom:1px solid #ddd;list-style:none;line-height:34px;font-size:14px;padding-left:10px;}
+    .desk ul li:hover{background:#647E7C;color:#fff;}
+    .signbox{position:relative;z-index:1;}
+    .signbox .s_list{width:294px;height:310px;position:absolute;}
+    .signbox .s_list .s_content{width:256px;height:220px;position:absolute;top:60px;left:16px;outline:none;
+        font-size:18px;}
+    .timer{position:absolute;bottom:10px;right:30px;font-size:14px;}
+    /*end desk*/
+
+		</style>
+	<link rel="stylesheet" type="text/css" href="css/animate.css"></link>
+	</head>
+<body>
+
+	<!--desk start-->
+	<div class="desk">
+		<ul>
+			<li onclick="tz_menu(1);">新建文件夹</li>
+			<li onclick="tz_menu(2);">添加便签</li>
+			<li onclick="tz_menu(3);">清空便签</li>
+			<li onclick="tz_menu(4);">刷新</li>
+			<li onclick="tz_menu(5);">上传资料</li>
+			<li onclick="tz_menu(6);">更换背景</li>
+			<li onclick="tz_menu(7);">注销</li>
+		</ul>
+	</div>
+	<!--end desk-->
+
+	<div class="signbox"></div>
+
+<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript">
+	// 屏蔽浏览器右键
+	document.oncontextmenu = function(){
+		return false;
+	}
+	
+	// 按下鼠标
+	$(document).mousedown(function(e){
+		var key = e.which; // 鼠标键位（右键3，左键1，滚轮2）
+		if(key == 3){
+			var x = e.clientX;
+			var y = e.clientY;
+			$(".test").html("X: "+x+" Y: "+y);
+			$(".desk").show().css({left:x,top:y});
+		}
+	});
+	
+	// 隐藏右键
+	$(document).click(function(){
+		$(".desk").hide();
+	});
+
+	// 右键的功能
+	function tz_menu(flag){
+		// 添加便签
+		if(flag == 2){
+			// 获取当前鼠标右键的位置
+			var left = $(".desk").offset().left;
+			var top = $(".desk").offset().top;
+
+			// 生成1到3的随机数
+			var random = Math.floor(Math.random() * 3) + 1;
+			$(".signbox")
+			.append("<div class='s_list animated rollIn' style='left:"+left+"px;top:"+top+"px;'>"+
+						"<img src='images/"+random+".png' alt='便签' width='294' height='310' />"+
+						"<div class='s_content' contenteditable = 'true'></div>"+
+						"<p class='timer'><span>3</span>秒后自动保存</p>"+
+					"</div>");
+			auto_timer();
+		}
+
+		// 清空标签
+		if(flag == 3){
+			$(".s_list").removeClass("animated rollIn").addClass("animated bounceOut").fadeOut(1000);
+			// 清空缓存
+			localStorage.removeItem("my_label");
+		}
+	
+	}
+
+	// 自动保存时间
+	var timer = null;
+	function auto_timer(){
+		clearInterval(timer);
+		var count = 3;
+		timer = setInterval(function(){
+			if(count <= 0){
+				count = 3;
+				// 保存内容
+				localStorage.setItem("my_label",$(".signbox").html());
+			}
+			$(".timer").find("span").text(count);
+			count--;
+		},1000);
+	}
+
+	// 页面加载时就运行
+	$(function(){
+		// 读取缓存信息
+		var my_label = localStorage.getItem("my_label");
+		if(my_label){
+			$(".signbox").html(my_label);
+			auto_timer();
+		}
+	
+	});
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>banner轮展图 - Arry老师</title>
+		<meta name="Keywords" content="关键词,关键词">
+		<meta name="description" content="">
+
+		<style type="text/css">
+			*{margin:0;padding:0;}
+			/*banner start*/
+			.banner{width:100%;height:365px;position:relative;z-index:0;}
+			.banner .b_img{width:100%;height:365px;border:1px solid green;position:absolute;top:0;left:0;}
+			.banner .b_btn{position:absolute;left:47%;bottom:20px;z-index:2;}
+			.banner .b_btn ul li{list-style:none;float:left;width:16px;height:16px;background:url("images/1.png") no-repeat;margin:0 2px;cursor: pointer;}
+			.banner .b_btn ul{background:#000;display:inline-block;padding: 3px 20px;border-radius:11px;background:rgba(0,0,0,0.3);}
+			.banner .b_btn .b_sel{background:url("images/2.png");}
+			/*end banner*/
+		</style>
+
+	</head>
+<body>
+
+	<!--banner start-->
+	<div class="banner">
+		<div class="b_img" style="background:url('images/1.jpg') top center;"></div>
+		<div class="b_img" style="background:url('images/2.jpg') top center;"></div>
+		<div class="b_img" style="background:url('images/3.jpg') top center;"></div>
+		<div class="b_img" style="background:url('images/4.jpg') top center;"></div>
+
+		<div class="b_btn">
+			<ul id="b_ul">
+				<li class="b_sel"></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		
+		</div>
+	</div>
+	<!--end banner-->
+
+<!--引入Query官方类库-->
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript">
+	$(function(){
+		// alert("亲爱的同学们，大家好 ！ 我爱你们 ！");
+		$("#b_ul").find("li").mouseover(function(){
+			$(this).addClass("b_sel").siblings().removeClass("b_sel");
+			// 初始化显示级别和透明度
+			$(".b_img").css({"z-index":0,"opacity":0});
+			// 获取下标
+			var _index = $(this).index();
+			$(".b_img").eq(_index).css("z-index",1).fadeTo(1000,1);
+		});
+
+	});
+</script>
+
+</body>
+</html>

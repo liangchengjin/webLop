@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Generator" content="CC1.0®">
+    <meta name="Author" content="CC.成琛">
+    <mate name="copyright" content="版权信息">
+    <title>C.C.成琛音乐网</title>
+    <meta name="Keywords" content="关键字,关键字">
+    <meta name="Description" content="网页内容描述信息">
+
+    <link rel="shortcut icon" href="ico.ico">   <!--添加PC网站ICO图标-->
+    <link rel="apple-touch-icon" href="ico.ico"> <!--添加移动网站ICO图标-->
+
+<!--CSS,JS-->
+<style>
+	*{margin:0; padding:0;}
+	body{font-size:12px; font-family:'微软雅黑';}
+	ul,li{list-style:none;}
+	a{text-decoration:none;}
+	/*--顶部 start*/
+	.searchnav{width:100%; height:30px; background:#f9f9f9; border-bottom:1px solid #ccc;}	
+	.searchnav .topnav li:nth-child(n) a{float:left; color:#333; padding:7px 10px; }
+	.searchnav .topnav li:nth-child(7) a{color:red; border-bottom:2px solid red; font-weight:bold;}
+	.searchnav .topnav li:nth-child(n) a:hover{color:red;}
+	/*--顶部 end*/
+
+	/*--头部 start--*/
+	.header{width:1240px;height:100px; border-top:none; margin:0 auto; }
+	.header .logobox{float:left; margin-top:29px; }
+	.header .searchbox{height:39px;float:left; margin:29px 100px;}
+	.header .logobox .logo{width:103px; height:39px;}	
+	.header .searchbox .sear_title{display:inline-block; height:39px; width:120px;float:left;background:#33ad1f; font-size:20px; color:#FFF; line-height:39px; text-align:center; font-weight:bold;}
+	.header .searchbox .searchform{height:39px; float:left;}	
+	.header .searchbox .searchform .querybox{border:1px solid #33ad1f;}
+	.header .searchbox .searchform .querybox,.query,.querybox .btn{height:37px;}
+	.header .searchbox .searchform .querybox .query,.querybox .btn{outline:none; font-size:14px; border:none;}
+	.header .searchbox .searchform .querybox .query{width:470px; background:#FFF; text-indent:10px; color:#ccc; float:left;}
+	.header .searchbox .searchform .querybox .btn{ font-size:20px; background:#33ad1f;   font-weight:bold; color:#FFF;  float:left; padding:0 10px; cursor:pointer;}
+	
+	/*--头部 end--*/
+
+</style>	
+</head>
+	<body>
+	<!--顶部 start-->	
+		<nav class="searchnav">
+			<ul class="topnav">
+				<li><a href="#">新闻</a></li>
+				<li><a href="#">网页</a></li>
+				<li><a href="#">微信</a></li>
+				<li><a href="#">问问</a></li>
+				<li><a href="#">图片</a></li>
+				<li><a href="#">视频</a></li>
+				<li><a href="#">音乐</a></li>
+				<li><a href="#">地图</a></li>
+				<li><a href="#">更多»</a></li>
+			</ul>
+		</nav>
+	<!--顶部 end-->
+	<!----头部 start---->		
+		<header class="header">
+			<figure class="logobox">
+				<img class="logo" src="images/logo.png" />
+			</figure>
+			<section class="searchbox">
+				<a class="sear_title" href="#">C.C成琛音乐</a>
+				<form class="searchform">
+					<section class="querybox">
+						<input class="query" name="query" type="text" placeholder="请输入搜索内容" />
+						<input class="btn" type="button" name="btn" value="音乐搜索" />
+					</section>
+				</form>
+			</section>
+		</header>
+	<!----头部 end---->
+	<style>
+		.nav{width:100%;background:#333; height:36px;}
+		.nav .mnav{width:1240px;background:#ccc; margin:0 auto;}
+		.nav .mnav .mlist{}
+		.nav .mnav .mlist li{float:left;}
+		.nav .mnav .mlist li:nth-child(n) a{display:block;padding:0 24px; height:36px; line-height:36px; color:#FFF; font-weight:bold; font-size:14px;}
+		.nav .mnav .mlist li:nth-child(1){position:relative;top:0; left:0;}
+		.nav .mnav .mlist li:nth-child(1) a{background:#28a913;}
+		.nav .mnav .mlist li a:hover{background:#757575;}		
+		.nav .mnav .mlist li .tip{display:block;background:green; position:absolute;top:-40px; left:18px;}
+		.nav .mnav .mlist li .tip .imgtip{display:block; width:40px; height:40px;}
+		.nav .mnav .mlist .minfo{float:right;}
+		.nav .mnav .mlist .minfo .mact{float:left; }
+		.nav .mnav .mlist .minfo .mact span{color:#555;}
+		.nav .mnav .mlist .minfo .mact .act_icon{transition:1s all; display:inline-block;text-indent:20px; background:url("images/act_icon.png") no-repeat 6px 5px; }
+		.nav .mnav .mlist .minfo .mact .act_icon:hover{background-position:5px -35px; color:#b3b3b3;}
+		.nav .mnav .mlist .minfo .mact .null{background:#333; }
+		.nav .mnav .mlist .minfo .mact .null:hover{color:#b3b3b3; }
+
+	</style>
+	<section class="nav">
+		<nav class="mnav">
+			<ul class="mlist">
+				<li>
+					<a class="aone" href="#">首页</a>
+					<i class="tip">
+						<img class="imgtip" src="images/tip.gif" width="40" height="40" alt="new" />
+					</i>
+				</li>
+				<li><a href="#">榜单</a></li>
+				<li><a href="#">歌手</a></li>
+				<li><a href="#">标签</a></li>
+				<li><a href="#">歌单</a></li>
+				<li><a href="#">专辑</a></li>
+				<li><a href="#">MV</a></li>
+				<li class="minfo">
+					<div class="mact">
+						<a class="act_icon" href="#">中国好声音第四季</a>
+						<span>|</span>
+					</div>
+					<div class="mact">
+						<a class="null" href="#">好声音现场视频</a>						
+					</div>
+					
+				</li>
+			</ul>		
+		</nav>
+	</section>
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	</body>
+</html>

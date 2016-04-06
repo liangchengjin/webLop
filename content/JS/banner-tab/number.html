@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <style>
+	* {margin: 0; padding: 0;}
+	html, body {min-height: 100%;font-size:14px;font-family:"微软雅黑";padding:10px;}
+	ul,li{list-style:none;}
+	ul{counter-reset:flag;}
+	li{height:35px;line-height:35px;border-bottom:1px dotted #ccc}
+	li:before{
+		content: counter(flag);
+		counter-increment: flag;
+		height:35px;
+		padding:0 8px;
+		color:#fff;
+		font-size:12px;
+		background:green;
+		margin-right:8px;
+	}
+
+	li:first-child:before{background:red}
+	li:nth-child(2):before{background:pink}
+	li:nth-child(3):before{background:#111}
+	
+  </style>
+ </head>
+ <body>
+  <ul>
+	<li>网易半夜取消峰会因“不可抗力”...</li>
+	<li>扒皮美女创业者：15分钟拿下薛...</li>
+	<li>腾讯8500万美元领投人人车，...</li>
+	<li>已致7人死亡，纽约爆发军团菌病...</li>
+	<li>他把公司卖掉后，给员工发了15...</li>
+	<li>扒皮美女创业者：15分钟拿下薛...</li>
+	<li>腾讯8500万美元领投人人车，...</li>
+	<li>已致7人死亡，纽约爆发军团菌病...</li>
+	<li>他把公司卖掉后，给员工发了15...</li>
+	<li>扒皮美女创业者：15分钟拿下薛...</li>
+	<li>腾讯8500万美元领投人人车，...</li>
+	<li>已致7人死亡，纽约爆发军团菌病...</li>
+	<li>他把公司卖掉后，给员工发了15...</li>
+  </ul>
+ </body>
+</html>

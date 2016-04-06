@@ -1,0 +1,519 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Generator" content="CC1.0®">
+    <meta name="Author" content="CC.成琛">
+    <mate name="copyright" content="版权信息">
+    <title>C.C.成琛音乐网</title>
+    <meta name="Keywords" content="关键字,关键字">
+    <meta name="Description" content="网页内容描述信息">
+
+    <link rel="shortcut icon" href="ico.ico">   <!--添加PC网站ICO图标-->
+    <link rel="apple-touch-icon" href="ico.ico"> <!--添加移动网站ICO图标-->
+
+<!--CSS,JS-->
+<style>
+	*{margin:0; padding:0;}
+	body{font-size:12px; font-family:'微软雅黑';}
+	ul,li{list-style:none;}
+	a{text-decoration:none; color:#444;}
+
+	/*--内地榜 start--*/
+	.bang_area{width:1240px; background:#ececec; margin:0 auto;}
+	.bang_area .bang_box{width:290px; float:left; margin:0 11px 0 9px;}
+	.bang_area .bang_box .m_tite{width:290px; height:41px; margin:10px auto; border-bottom:2px solid red;}
+
+	.bang_area .bang_box  .m_tite h2{font-size:20px; float:left; line-height:41px; color:#b38ad0; text-indent:42px; background:url("images/index_icon.png")  -7px -83px  no-repeat; border-bottom:2px solid #b38ad0;}
+	.bang_area .bang_box  .play_btn{float:left; display:block; height:26px; width:26px; background:red; margin:10px 10px;
+		background:url("images/btns.png") -18px -495px no-repeat;		}
+	.bang_area .bang_box  .play_btn:hover{background:url("images/btns.png") -78px -495px;}
+	.bang_area .bang_box  .m_tite .tit_info{float:right;}
+	.bang_area .bang_box  .m_tite .tit_info .more{display:block; height:41px; line-height:41px; color:#328e23;}
+
+	.bang_area .bang_box  .bang_list li{width:285px; height:61px; background:#FFF; position:relative; top:0; left:0;  border-left:4px solid #FFF;}
+
+	.bang_area .bang_box .bang_list li:nth-child(2n){background:#efefef; transition:1s all; border-left:4px solid #efefef;}
+	.bang_area .bang_box .bang_list li:nth-child(1n):hover{background:#FFF; }
+
+	.bang_area .bang_box  .bang_list li:hover{ border-left:4px solid #28a913;}
+	.bang_area .bang_box  .bang_list li .num{ float:left; font-size:24px; font-weight:400; display:block; width:48px; height:61px;  line-height:61px; text-align:center; color:#c0c0c0;}
+	.bang_area .bang_box  .bang_list li .num_01{color:#b38ad0;}
+	.bang_area .bang_box  .bang_list li .num_02{color:#b38ad0; opacity:0.8}
+	.bang_area .bang_box  .bang_list li .num_03{color:#b38ad0; opacity:0.4}
+
+	.bang_area .bang_box  .bang_list li:hover .num{color:#328e23;}
+	.bang_area .bang_box  .bang_list li .song_name{display:inline-block; width:185px; height:24px; line-height:24px;
+		overflow: hidden; font-family: 'microSoft YaHei'; font-size: 14px; line-height: 24px; text-overflow: ellipsis; white-space: nowrap; margin-top:6px;}
+	.bang_area .bang_box  .bang_list li .song_name a{display:block; color:#333; }
+	.bang_area .bang_box  .bang_list li:hover .song_name a{ color:#31a150; }
+	.bang_area .bang_box  .bang_list li .singer_name{display:inline-block;width:200px;font-family:'microSoft YaHei'; line-height:18px; color:#444; }
+
+	.bang_area .bang_box  .bang_list li .play_btn{width:26px; height:26px; display:block; position:absolute; top:7px; right:0;}
+	.bang_area .bang_box  .bang_list li:hover .play_btna{background:url("images/btns.png") -78px -495px;}
+	/*--内地榜 end--*/
+
+</style>	
+</head>
+	<body>
+	<!----内地榜 start---->
+	<section class="bang_area">
+		<!--1、内地榜 start-->
+		<aside class="bang_box bang_01">			
+			<div class="m_tite">
+				<h2>内地榜</h2>
+				<a href="#" class="play_btn" title="播放"></a>
+				<span class="tit_info">
+					<a href="#" class="more" title="更多">更多></a>
+				</span>
+			</div>
+			<ul class="bang_list">
+				<li>
+					<b class="num num_01">1</b>
+					<span class="song_name">
+						<a href="#">剩下的盛夏</a>
+					</span>
+					<span class="singer_name">
+						<a href="#">TFBOYS</a>
+					</span>
+					<a href="#" class="play_btn  play_btna"></a>	
+				</li>
+				<li>
+					<b class="num num_02">2</b>
+					<span class="song_name">
+						<a href="#">剩下的盛夏</a>
+					</span>
+					<span class="singer_name">
+						<a href="#">TFBOYS</a>
+					</span>
+					<a href="#" class="play_btn  play_btna"></a>	
+				</li>
+				<li>
+					<b class="num num_03">3</b>
+					<span class="song_name">
+						<a href="#">剩下的盛夏</a>
+					</span>
+					<span class="singer_name">
+						<a href="#">TFBOYS</a>
+					</span>
+					<a href="#" class="play_btn  play_btna"></a>	
+				</li>
+				<li>
+					<b class="num num_04">4</b>
+					<span class="song_name">
+						<a href="#">剩下的盛夏</a>
+					</span>
+					<span class="singer_name">
+						<a href="#">TFBOYS</a>
+					</span>
+					<a href="#" class="play_btn  play_btna"></a>	
+				</li>
+				<li>
+					<b class="num num_05">5</b>
+					<span class="song_name">
+						<a href="#">剩下的盛夏</a>
+					</span>
+					<span class="singer_name">
+						<a href="#">TFBOYS</a>
+					</span>
+					<a href="#" class="play_btn  play_btna"></a>	
+				</li>
+				<li>
+					<b class="num num_06">6</b>
+					<span class="song_name">
+						<a href="#">剩下的盛夏</a>
+					</span>
+					<span class="singer_name">
+						<a href="#">TFBOYS</a>
+					</span>
+					<a href="#" class="play_btn  play_btna"></a>	
+				</li>
+				<li>
+					<b class="num num_07">7</b>
+					<span class="song_name">
+						<a href="#">剩下的盛夏</a>
+					</span>
+					<span class="singer_name">
+						<a href="#">TFBOYS</a>
+					</span>
+					<a href="#" class="play_btn  play_btna"></a>	
+				</li>
+				<li>
+					<b class="num num_08">8</b>
+					<span class="song_name">
+						<a href="#">剩下的盛夏</a>
+					</span>
+					<span class="singer_name">
+						<a href="#">TFBOYS</a>
+					</span>
+					<a href="#" class="play_btn  play_btna"></a>	
+				</li>
+				<li>
+					<b class="num num_09">9</b>
+					<span class="song_name">
+						<a href="#">剩下的盛夏</a>
+					</span>
+					<span class="singer_name">
+						<a href="#">TFBOYS</a>
+					</span>
+					<a href="#" class="play_btn  play_btna"></a>	
+				</li>
+				<li>
+					<b class="num num_010">10</b>
+					<span class="song_name">
+						<a href="#">剩下的盛夏</a>
+					</span>
+					<span class="singer_name">
+						<a href="#">TFBOYS</a>
+					</span>
+					<a href="#" class="play_btn  play_btna"></a>	
+				</li>
+			</ul>			
+		</aside>
+		<!--1、内地榜 end-->
+
+		<!--2、内地榜 start-->
+		<aside class="bang_box bang_01">			
+			<div class="m_tite">
+				<h2>内地榜</h2>
+				<a href="#" class="play_btn" title="播放"></a>
+				<span class="tit_info">
+					<a href="#" class="more" title="更多">更多></a>
+				</span>
+			</div>
+			<ul class="bang_list">
+				<li>
+					<b class="num num_01">1</b>
+					<span class="song_name">
+						<a href="#">剩下的盛夏</a>
+					</span>
+					<span class="singer_name">
+						<a href="#">TFBOYS</a>
+					</span>
+					<a href="#" class="play_btn  play_btna"></a>	
+				</li>
+				<li>
+					<b class="num num_02">2</b>
+					<span class="song_name">
+						<a href="#">剩下的盛夏</a>
+					</span>
+					<span class="singer_name">
+						<a href="#">TFBOYS</a>
+					</span>
+					<a href="#" class="play_btn  play_btna"></a>	
+				</li>
+				<li>
+					<b class="num num_03">3</b>
+					<span class="song_name">
+						<a href="#">剩下的盛夏</a>
+					</span>
+					<span class="singer_name">
+						<a href="#">TFBOYS</a>
+					</span>
+					<a href="#" class="play_btn  play_btna"></a>	
+				</li>
+				<li>
+					<b class="num num_04">4</b>
+					<span class="song_name">
+						<a href="#">剩下的盛夏</a>
+					</span>
+					<span class="singer_name">
+						<a href="#">TFBOYS</a>
+					</span>
+					<a href="#" class="play_btn  play_btna"></a>	
+				</li>
+				<li>
+					<b class="num num_05">5</b>
+					<span class="song_name">
+						<a href="#">剩下的盛夏</a>
+					</span>
+					<span class="singer_name">
+						<a href="#">TFBOYS</a>
+					</span>
+					<a href="#" class="play_btn  play_btna"></a>	
+				</li>
+				<li>
+					<b class="num num_06">6</b>
+					<span class="song_name">
+						<a href="#">剩下的盛夏</a>
+					</span>
+					<span class="singer_name">
+						<a href="#">TFBOYS</a>
+					</span>
+					<a href="#" class="play_btn  play_btna"></a>	
+				</li>
+				<li>
+					<b class="num num_07">7</b>
+					<span class="song_name">
+						<a href="#">剩下的盛夏</a>
+					</span>
+					<span class="singer_name">
+						<a href="#">TFBOYS</a>
+					</span>
+					<a href="#" class="play_btn  play_btna"></a>	
+				</li>
+				<li>
+					<b class="num num_08">8</b>
+					<span class="song_name">
+						<a href="#">剩下的盛夏</a>
+					</span>
+					<span class="singer_name">
+						<a href="#">TFBOYS</a>
+					</span>
+					<a href="#" class="play_btn  play_btna"></a>	
+				</li>
+				<li>
+					<b class="num num_09">9</b>
+					<span class="song_name">
+						<a href="#">剩下的盛夏</a>
+					</span>
+					<span class="singer_name">
+						<a href="#">TFBOYS</a>
+					</span>
+					<a href="#" class="play_btn  play_btna"></a>	
+				</li>
+				<li>
+					<b class="num num_010">10</b>
+					<span class="song_name">
+						<a href="#">剩下的盛夏</a>
+					</span>
+					<span class="singer_name">
+						<a href="#">TFBOYS</a>
+					</span>
+					<a href="#" class="play_btn  play_btna"></a>	
+				</li>
+			</ul>			
+		</aside>
+		<!--2、内地榜 end-->
+
+		<!--3、内地榜 start-->
+		<aside class="bang_box bang_01">			
+			<div class="m_tite">
+				<h2>内地榜</h2>
+				<a href="#" class="play_btn" title="播放"></a>
+				<span class="tit_info">
+					<a href="#" class="more" title="更多">更多></a>
+				</span>
+			</div>
+			<ul class="bang_list">
+				<li>
+					<b class="num num_01">1</b>
+					<span class="song_name">
+						<a href="#">剩下的盛夏</a>
+					</span>
+					<span class="singer_name">
+						<a href="#">TFBOYS</a>
+					</span>
+					<a href="#" class="play_btn  play_btna"></a>	
+				</li>
+				<li>
+					<b class="num num_02">2</b>
+					<span class="song_name">
+						<a href="#">剩下的盛夏</a>
+					</span>
+					<span class="singer_name">
+						<a href="#">TFBOYS</a>
+					</span>
+					<a href="#" class="play_btn  play_btna"></a>	
+				</li>
+				<li>
+					<b class="num num_03">3</b>
+					<span class="song_name">
+						<a href="#">剩下的盛夏</a>
+					</span>
+					<span class="singer_name">
+						<a href="#">TFBOYS</a>
+					</span>
+					<a href="#" class="play_btn  play_btna"></a>	
+				</li>
+				<li>
+					<b class="num num_04">4</b>
+					<span class="song_name">
+						<a href="#">剩下的盛夏</a>
+					</span>
+					<span class="singer_name">
+						<a href="#">TFBOYS</a>
+					</span>
+					<a href="#" class="play_btn  play_btna"></a>	
+				</li>
+				<li>
+					<b class="num num_05">5</b>
+					<span class="song_name">
+						<a href="#">剩下的盛夏</a>
+					</span>
+					<span class="singer_name">
+						<a href="#">TFBOYS</a>
+					</span>
+					<a href="#" class="play_btn  play_btna"></a>	
+				</li>
+				<li>
+					<b class="num num_06">6</b>
+					<span class="song_name">
+						<a href="#">剩下的盛夏</a>
+					</span>
+					<span class="singer_name">
+						<a href="#">TFBOYS</a>
+					</span>
+					<a href="#" class="play_btn  play_btna"></a>	
+				</li>
+				<li>
+					<b class="num num_07">7</b>
+					<span class="song_name">
+						<a href="#">剩下的盛夏</a>
+					</span>
+					<span class="singer_name">
+						<a href="#">TFBOYS</a>
+					</span>
+					<a href="#" class="play_btn  play_btna"></a>	
+				</li>
+				<li>
+					<b class="num num_08">8</b>
+					<span class="song_name">
+						<a href="#">剩下的盛夏</a>
+					</span>
+					<span class="singer_name">
+						<a href="#">TFBOYS</a>
+					</span>
+					<a href="#" class="play_btn  play_btna"></a>	
+				</li>
+				<li>
+					<b class="num num_09">9</b>
+					<span class="song_name">
+						<a href="#">剩下的盛夏</a>
+					</span>
+					<span class="singer_name">
+						<a href="#">TFBOYS</a>
+					</span>
+					<a href="#" class="play_btn  play_btna"></a>	
+				</li>
+				<li>
+					<b class="num num_010">10</b>
+					<span class="song_name">
+						<a href="#">剩下的盛夏</a>
+					</span>
+					<span class="singer_name">
+						<a href="#">TFBOYS</a>
+					</span>
+					<a href="#" class="play_btn  play_btna"></a>	
+				</li>
+			</ul>			
+		</aside>
+		<!--3、内地榜 end-->
+
+		<!--4、内地榜 start-->
+		<aside class="bang_box bang_01">			
+			<div class="m_tite">
+				<h2>内地榜</h2>
+				<a href="#" class="play_btn" title="播放"></a>
+				<span class="tit_info">
+					<a href="#" class="more" title="更多">更多></a>
+				</span>
+			</div>
+			<ul class="bang_list">
+				<li>
+					<b class="num num_01">1</b>
+					<span class="song_name">
+						<a href="#">剩下的盛夏</a>
+					</span>
+					<span class="singer_name">
+						<a href="#">TFBOYS</a>
+					</span>
+					<a href="#" class="play_btn  play_btna"></a>	
+				</li>
+				<li>
+					<b class="num num_02">2</b>
+					<span class="song_name">
+						<a href="#">剩下的盛夏</a>
+					</span>
+					<span class="singer_name">
+						<a href="#">TFBOYS</a>
+					</span>
+					<a href="#" class="play_btn  play_btna"></a>	
+				</li>
+				<li>
+					<b class="num num_03">3</b>
+					<span class="song_name">
+						<a href="#">剩下的盛夏</a>
+					</span>
+					<span class="singer_name">
+						<a href="#">TFBOYS</a>
+					</span>
+					<a href="#" class="play_btn  play_btna"></a>	
+				</li>
+				<li>
+					<b class="num num_04">4</b>
+					<span class="song_name">
+						<a href="#">剩下的盛夏</a>
+					</span>
+					<span class="singer_name">
+						<a href="#">TFBOYS</a>
+					</span>
+					<a href="#" class="play_btn  play_btna"></a>	
+				</li>
+				<li>
+					<b class="num num_05">5</b>
+					<span class="song_name">
+						<a href="#">剩下的盛夏</a>
+					</span>
+					<span class="singer_name">
+						<a href="#">TFBOYS</a>
+					</span>
+					<a href="#" class="play_btn  play_btna"></a>	
+				</li>
+				<li>
+					<b class="num num_06">6</b>
+					<span class="song_name">
+						<a href="#">剩下的盛夏</a>
+					</span>
+					<span class="singer_name">
+						<a href="#">TFBOYS</a>
+					</span>
+					<a href="#" class="play_btn  play_btna"></a>	
+				</li>
+				<li>
+					<b class="num num_07">7</b>
+					<span class="song_name">
+						<a href="#">剩下的盛夏</a>
+					</span>
+					<span class="singer_name">
+						<a href="#">TFBOYS</a>
+					</span>
+					<a href="#" class="play_btn  play_btna"></a>	
+				</li>
+				<li>
+					<b class="num num_08">8</b>
+					<span class="song_name">
+						<a href="#">剩下的盛夏</a>
+					</span>
+					<span class="singer_name">
+						<a href="#">TFBOYS</a>
+					</span>
+					<a href="#" class="play_btn  play_btna"></a>	
+				</li>
+				<li>
+					<b class="num num_09">9</b>
+					<span class="song_name">
+						<a href="#">剩下的盛夏</a>
+					</span>
+					<span class="singer_name">
+						<a href="#">TFBOYS</a>
+					</span>
+					<a href="#" class="play_btn  play_btna"></a>	
+				</li>
+				<li>
+					<b class="num num_010">10</b>
+					<span class="song_name">
+						<a href="#">剩下的盛夏</a>
+					</span>
+					<span class="singer_name">
+						<a href="#">TFBOYS</a>
+					</span>
+					<a href="#" class="play_btn  play_btna"></a>	
+				</li>
+			</ul>			
+		</aside>
+		<!--4、内地榜 end--
+	</section>
+	<!--内地榜 end-->
+	</body>
+</html>
