@@ -3,37 +3,186 @@
 <head>
     <meta charset="UTF-8">
     <meta name="Generator" content="CC1.0®">
-    <meta name="Author" content="CC.成琛">
-    <mate name="copyright" content="版权信息">
-    <title>深圳CC·呈琛前端</title>
-    <meta name="Keywords" content="关键字,关键字">
-    <meta name="Description" content="网页内容描述信息">
-
+    <meta name="Author" content="开发者:CC">
+    <mate name="copyright" content="CC">
+    <title>CC代码在线编辑器工具</title>
+    <meta name="Keywords" content="CC在线编辑器">
+    <meta name="Description" content="CC在线编辑器">
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" /><!--移动端-->
     <link rel="shortcut icon" href="ico.ico">   <!--添加PC网站ICO图标-->
     <link rel="apple-touch-icon" href="ico.ico"> <!--添加移动网站ICO图标-->
-	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
 
 <!--CSS,JS-->
+	 <!--文件引入-->
+	  <link rel="stylesheet" href="css/codemirror.css">
+	  <!--theme 皮肤设置-->	 
+	  <link rel="stylesheet" href="css/seti.css">
+	  <!--codemirror 核心JS-->
+	  <script type="text/javascript" src="js/codemirror.js"></script>
+	  <!--mode JS风格, css java c++ html-->
+	  <script type="text/javascript" src="js/javascript.js"></script>
+	  <script type="text/javascript" src="js/css.js"></script>
+	  <script type="text/javascript" src="js/xml.js"></script>
+	  <script type="text/javascript" src="js/htmlmixed.js"></script>
 <style>
 	*{margin:0; padding:0;}
-	body{font-size:12px; font-family:'微软雅黑';}
-	.if-left{width:12.7%; height:990px;float:left; border-right:1px dotted #41c770; background:#000; position:fixed; top:0; left:0;}
-	.if-right{width:87.3%; height:990px;float:right;border:none; }
+	/*编辑器初始化区块 start*/
+	body{font-size:12px; font-family:'微软雅黑'; background:#000;}
+	.wid{width:33.3%; float:left;}
+	.main{width:100%; background:#ccc; height:300px;}
+	.main .cssdom,.main .htmldom,.main .jsdom{overflow:auto; }
+	p{background:#373737; color:#0c0; line-height:40px; height:40px; text-indent:30px; font-size:14px;}
+	/*编辑器初始化区块 end*/
 
+	/*--获取源代码 start--*/
+	.getbtn{text-decoration:none; color:#FFF; display:block;width:100%; height:30px; background:#247b43;float:left; text-align:center; line-height:30px; transition:1s all;}
+	.getbtn:hover{background:#7ca62f;color:#FFF;}
+	.iframes{width:100%;position:absolute; top:381px; left:0;}
+	#preview{width:100%;   height:585px; color:green;  border:none; }
+	/*--获取源代码 end--*/
 </style>	
 </head>
 	<body>
-	<iframe class="if-left" src="link/link.html"></iframe>
-	<iframe class="if-right" name="show" src="content/WebStatic/Web1/index.html">	
-	</iframe>
-	 <script>
-	var _hmt = _hmt || [];
-	(function() {
-	  var hm = document.createElement("script");
-	  hm.src = "//hm.baidu.com/hm.js?4f99a1d7cdc84806ee9e94d56392bb3c";
-	  var s = document.getElementsByTagName("script")[0]; 
-	  s.parentNode.insertBefore(hm, s);
-	})();
-	</script>
+<div class="main">
+<!----------------------CSS样式区   编辑器初始化区块------------------------------------------------------>
+<div class="wid cssdom">
+<p class="cssp">CSS编辑器初始化区块</p>
+<textarea id="csseditor">
+<style type="text/css">
+*{margin:0; padding:0;}
+h1{color:green;}
+
+</style>
+</textarea>
+</div>
+<!-----------------------HTML样式区  编辑器初始化区块-------------------------------------------->
+<div class="wid htmldom">
+<p class="htmlp">HTML编辑器初始化区块</p>
+<textarea id="htmleditor">
+<!doctype html>
+<html lang="en">
+	<head>
+			<meta charset="UTF-8">
+			<meta name="Generator" content="CC1.0®">
+			<meta name="Author" content="CC">
+			<mate name="copyright" content="版权信息">
+			<title>CC代码在线编辑器工具</title>
+			<meta name="Keywords" content="关键字,关键字">
+			<meta name="Description" content="网页内容描述信息">
+			<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" /><!--移动端-->
+			<link rel="shortcut icon" href="ico.ico">   <!--添加PC网站ICO图标-->
+			<link rel="apple-touch-icon" href="ico.ico"> <!--添加移动网站ICO图标-->
+	</head>
+	<body>
+		<h1>CC代码在线编辑器工具</h1>
+	</body>
+</html>
+</textarea>
+</div>
+	
+<!---------------------JS代码区      编辑器初始化区块-------------------------------------------------->	
+<div class="wid jsdom">
+<p class="jsp">js编辑器初始化区块</p>
+<textarea id="jseditor">
+<script type="text/javascript">
+	(function(){
+		
+	}());
+</script>
+</textarea>
+</div> 
+</div>
+
+<!--获取源代码-->
+<a class="getbtn" href="javascript:void(0);" onclick="setPreview()">点击效果预览</a>
+<!--实时预览效果-->
+<iframe id="preview" name="preview"></iframe>
+
+
+	   
+<!--javascript-------------------------------------------------------------->
+	  <script tyep="text/javascript">
+		//  css 编辑器初始化区块
+		var csseditorDom = document.getElementById("csseditor");
+		var cssMirror = CodeMirror.fromTextArea(csseditorDom,{
+			mode:"text/css", // 编辑的模式
+			lineNumbers:true, // 显示行号
+			theme:"seti", // 皮肤
+			tabSize:4	// 显示空号
+		});
+
+		//  HTML 编辑器初始化区块
+		var htmleditorDom = document.getElementById("htmleditor");
+		var htmlMirror = CodeMirror.fromTextArea(htmleditorDom,{
+			mode:"htmlmixed",	// HTML编辑的模式
+			lineNumbers:true, // 显示行号
+			theme:"seti", // 皮肤
+			tabSize:4	// 显示空号
+		});
+
+		// js 编辑器初始化区块
+		var jseditorDom = document.getElementById("jseditor");
+		var jsMirror = CodeMirror.fromTextArea(jseditorDom,{
+			mode:"javascript",	// 编辑的模式
+			lineNumbers:true, // 显示行号
+			theme:"seti", // 皮肤
+			tabSize:4	// 显示空号
+		});
+		// 实时预览
+		function getSource(){
+			// alert(htmlMirror.getValue());
+			// htmlMirror.getValue());
+			// htmlMirror.setValue("<p>dddd</p>");
+		}
+		
+		// 本地存储数据
+		 window.onload = function(){
+				// CSS 回调函数 代码实时显示
+				cssMirror.on("change",function(){
+					setPreview();
+					setEditorDate();
+				});
+				// HTML 回调函数 代码实时显示
+				htmlMirror.on("change",function(){
+					setPreview();
+					setEditorDate();
+				});
+
+				if(window.localStorage){
+				var cssData = localStorage.getItem("css_editor_data");
+				var htmlData = localStorage.getItem("html_editor_data");
+				var jsData = localStorage.getItem("js_editor_data");
+				
+				cssMirror.setValue(cssData);
+				htmlMirror.setValue(htmlData);
+				jsMirror.setValue(jsData);
+				};
+		 };
+		
+		function setPreview(){
+			var cssSource = cssMirror.getValue();
+			var htmlSource = htmlMirror.getValue();
+			var jsSource = jsMirror.getValue();
+			// 设置到iframe里		
+			var iframe = window.frames["preview"];
+			preview.document.open();
+			preview.document.write(cssSource);
+			preview.document.write(htmlSource);
+			preview.document.write(jsSource);
+			preview.document.close();
+		}
+		
+		// 代码时实保存
+		function setEditorDate(){
+			var cssSource = cssMirror.getValue();
+			var htmlSource = htmlMirror.getValue();
+			var jsSource = jsMirror.getValue();
+			if(window.localStorage){
+				localStorage.setItem("css_editor_data",cssSource);
+				localStorage.setItem("html_editor_data",htmlSource);
+				localStorage.setItem("js_editor_data",jsSource);
+				}
+		};
+	  </script>
 	</body>
 </html>
