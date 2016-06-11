@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <title>16、综合案例-选项卡</title>
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <!--css-->
+  <link rel="stylesheet" href="dist/css/index.css">
+ </head>
+ <body>
+  <section class="contents">
+	<header class="header">
+		<section class="h-top">
+			<article class="hbox">
+				<a href="#" class="hicon">返回</a>
+				<h1>十六、综合案例-选项卡</h1>
+				<a href="#" class="hicon">分享</a>
+			</article>
+		</section>		
+	</header>
+	<section class="main">
+		<article class="mheadsbox">
+			<ul class="mul">
+				<li><a href="#li0">综合案例-选项卡</a></li>
+				<li><a href="#li01">选项卡</a></li>
+				<li><a href="#li02">代码</a></li>
+				<li><a href="#li1">一、综合案例-选项卡-注释版</a></li>
+				<li><a href="#li101">第1步：分析需示和思路，选项卡的思路非常简单：</a></li>
+				<li><a href="#li102">第2步：要操作谁就先获取谁</a></li>
+				<li><a href="#li103">第3步：制定一个功能方法，实现我们的需求</a></li>
+				<li><a href="#li104">第4步：给我们的li绑定鼠标移上去的事件</a></li>
+				<li><a href="#li105">分析说明</a></li>
+				
+				<li><a href="#li2">二、综合案例-选项卡-不加注释版</a></li>
+				<li><a href="#li201">不加注释版</a></li>
+
+				<li><a href="#li3">三、综合案例-选项卡-优化版</a></li>
+				<li><a href="#li301">优化版</a></li>				
+			</ul>
+		</article>
+		<section class="conbox">
+			<ul class="conuls">
+				<li>				 
+					<h3><a name="li0">综合案例-选项卡</a></h3>
+					<article class="nodes">						
+						<h4><a name="li01">选项卡</a></h4>
+						<div class="demo">
+							 <style>
+								  ul,li{list-style:none;}
+								  #tab{margin:10px auto; width:500px;}
+								  #tab ul{position:relative; top:11px; }
+								  #tab ul li{width:100px; height:30px; line-height:30px; text-align:center; border:1px solid #ddd; float:left;/*margin-right:10px;*/ cursor:pointer;}
+								  #tab ul li.select{background:-webkit-linear-gradient(top left, #ff0066,#00cc33,#ffcc00);}
+								  #tab > div{height:100px; line-height:100px; text-align:center; border:1px solid #ddd; clear:both; display:none;}  	
+								  #tab > div.select{display:block;}
+							  </style>
+							<div id="tab">
+								<ul>
+									<li class="select">视频</li>
+									<li>综艺</li>
+									<li>秒拍</li>
+								</ul>
+								<div class="select">视频内容</div>
+								<div>综艺内容</div>
+								<div>秒拍内容</div>
+							</div>
+
+							<!--js-->
+							<script>
+							  var oTab = document.getElementById("tab");
+								var oLis = oTab.getElementsByTagName("li");
+								var oDivs = oTab.getElementsByTagName("div");
+								var len = oLis.length;
+								for(var i = 0; i < len; i++){
+									var oLi = oLis[i];
+									oLi.cc = i;
+
+									oLi.onmouseover = function(){
+										for(var j = 0; j < len; j++){
+											oLis[j].className = "";
+											oDivs[j].className = "";
+										}
+										//this.className = "select";
+										oLis[this.cc].className = "select";
+										oDivs[this.cc].className = "select";
+									}
+								}
+							</script>
+						</div>
+
+						<h4><a name="li02">项目代码</a></h4>
+<pre>
+<code>
+&lt;!doctype html&gt;
+&lt;html lang="en"&gt;
+ &lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="Generator" content="EditPlus®"&gt;
+  &lt;meta name="Author" content=""&gt;
+  &lt;title&gt;16、综合案例-选项卡&lt;/title&gt;
+  &lt;meta name="Keywords" content=""&gt;
+  &lt;meta name="Description" content=""&gt;
+  &lt;meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"&gt;
+  &lt;!--css--&gt;
+  &lt;style&gt;
+	  *{margin:0; padding:0;}
+	  body{
+		font-family: "Hiragino Sans GB","Microsoft Yahei",arial,\5b8b\4f53,"Helvetica Neue",Helvetica,STHeiTi,sans-serif; 
+		font-size:14px;
+	  }
+	  ul,li{list-style:none;}
+	  #tab{
+		margin:10px auto;
+		width:500px;
+	  }
+	  #tab ul{
+		position:relative;
+		top:1px;
+		}
+	  #tab ul li{
+		width:100px;
+		height:30px;
+		line-height:30px;
+		text-align:center;
+		border:1px solid #ddd;
+		float:left;
+		margin-right:10px;
+		cursor:pointer;
+		}
+	  #tab ul li.select{
+		background:-webkit-linear-gradient(top left, #ff0066,#00cc33,#ffcc00);
+		}
+	  #tab &gt; div{
+		height:100px;
+		line-height:100px; 
+		text-align:center;
+		border:1px solid #ddd;
+		clear:both;
+		display:none;
+		}  	
+	  #tab &gt; div.select{display:block;}
+  &lt;/style&gt;
+ &lt;/head&gt;
+ &lt;body&gt;
+	&lt;!--元素--&gt;
+	&lt;div id="tab"&gt;
+		&lt;ul&gt;
+			&lt;li class="select"&gt;视频&lt;/li&gt;
+			&lt;li&gt;综艺&lt;/li&gt;
+			&lt;li&gt;秒拍&lt;/li&gt;
+		&lt;/ul&gt;
+		&lt;div class="select"&gt;视频内容&lt;/div&gt;
+		&lt;div&gt;综艺内容&lt;/div&gt;
+		&lt;div&gt;秒拍内容&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;!--js--&gt;
+	&lt;script&gt;
+	  var oTab = document.getElementById("tab");
+		var oLis = oTab.getElementsByTagName("li");
+		var oDivs = oTab.getElementsByTagName("div");
+		var len = oLis.length;
+		for(var i = 0; i &lt; len; i++){
+			var oLi = oLis[i];
+			oLi.cc = i;
+
+			oLi.onmouseover = function(){
+				for(var j = 0; j &lt; len; j++){
+					oLis[j].className = "";
+					oDivs[j].className = "";
+				}
+				//this.className = "select";
+				oLis[this.cc].className = "select";
+				oDivs[this.cc].className = "select";
+			}
+		}
+	&lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code>
+</pre>
+
+					</article>
+				</li>
+
+
+				<li>
+					<h3><a name="li1">一、综合案例-选项卡-注释版</a></h3>		
+					<article class="nodes">
+						<h4><a name="li101">第1步：分析需示和思路，选项卡的思路非常简单：</a></h4>
+						<p>/*1.鼠标滑到某一个li上面，让当前的li和对应的div有select的样式，然后再让当前的有这个select样式*/</p>
+
+						<h4><a name="li102">第2步：要操作谁就先获取谁</a></h4>
+<pre>
+<code>
+var oTab = document.getElementById("tab");
+var oLis = oTab.getElementsByTagName("li");
+var oDivs = oTab.getElementsByTagName("div");
+</code>
+</pre>
+
+						
+						<h4><a name="li103">第3步：制定一个功能方法，实现我们的需求</a></h4>
+						<p>/*nIndex是我们定义的形参，代表当前被选中元素的索引*/</p>
+<pre>
+<code>
+function tabChange(nIndex){
+	for(var i = 0; i < oLis.length; i++){
+		oLis[i].className = "";
+		oDivs[i].className = "";
+	}			
+	oLis[nIndex].className = "select";
+	oDivs[nIndex].className = "select";
+}
+</code>
+</pre>
+						
+						<h4><a name="li104">第4步：给我们的li绑定鼠标移上去的事件</a></h4>
+<pre>
+<code>
+for(var i = 0; i < oLis.length; i++){
+	<mark>// 自定义属性</mark>
+	oLis[i].cc = i;			<mark>// 在每一次循环的时候，把每一个li的索引定义在自己的自定义属性cc上</mark>
+	oLis[i].onmouseover = function(){				
+		tabChange(this.cc);		<mark>// this.cc 就是自己的属性</mark>
+	}
+}
+</code>
+</pre>
+						<h4><a name="li105">分析说明：这一段只是用来分析的</a></h4>
+<pre>
+<code>
+/*oLis[0].onmouseover = function(){
+	"tabChange(i)"
+}
+oLis[1].onmouseover = function(){
+	tabChange(i)
+}
+oLis[2].onmouseover = function(){
+	tabChange(i)
+*/
+</code>
+</pre>
+					</article>
+				</li>
+
+				<li>
+					<h3><a name="li2">二、综合案例-选项卡-不加注释版</a></h3>					
+					<article class="nodes">
+						<h4><a name="li201">1.不加注释版</a></h4>						
+<pre>
+<code>
+var oTab = document.getElementById("tab");
+var oLis = oTab.getElementsByTagName("li");
+var oDivs = oTab.getElementsByTagName("div");
+
+function tabChange(n){
+	for(var i = 0; i < oLis.length; i++){
+		oLis[i].className = "";
+		oDivs[i].className = "";
+	}
+	oLis[n].className = "select";
+	oDivs[n].className = "select";
+}
+
+for(var i = 0; i < oLis.length; i++){
+	oLis[i].cc = i;
+	oLis[i].onmouseover = function(){
+		tabChange(this.cc);
+	}
+}
+</code>
+</pre>
+					</article>
+				</li>
+<li>
+				 
+					<h3><a name="li3">三、综合案例-选项卡-优化版</a></h3>
+					<article class="nodes">						
+						<h4><a name="li301">1.优化版</a></h4>
+<pre>
+<code>
+
+var oTab = document.getElementById("tab");
+var oLis = oTab.getElementsByTagName("li");
+var oDivs = oTab.getElementsByTagName("div");
+var len = oLis.length;
+for(var i = 0; i < len; i++){
+	var oLi = oLis[i];
+	oLi.cc = i;
+
+	oLi.onmouseover = function(){
+		for(var j = 0; j < len; j++){
+			oLis[j].className = "";
+			oDivs[j].className = "";
+		}
+		<mark>//this.className = "select";</mark>
+		oLis[this.cc].className = "select";
+		oDivs[this.cc].className = "select";
+	}
+}
+</code>
+</pre>					
+					</article>
+				</li>				
+			</ul>
+		</section>
+	
+	</section>
+  </section>
+
+  
+  <!--js
+  <script>
+  
+  </script>-->
+ </body>
+</html>

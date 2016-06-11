@@ -1,188 +1,162 @@
 <!doctype html>
-<html lang="en">
+<html class="no-js fixed-layout">
 <head>
-    <meta charset="UTF-8">
-    <meta name="Generator" content="CC1.0®">
-    <meta name="Author" content="开发者:CC">
-    <mate name="copyright" content="CC">
-    <title>CC代码在线编辑器工具</title>
-    <meta name="Keywords" content="CC在线编辑器">
-    <meta name="Description" content="CC在线编辑器">
-	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" /><!--移动端-->
-    <link rel="shortcut icon" href="ico.ico">   <!--添加PC网站ICO图标-->
-    <link rel="apple-touch-icon" href="ico.ico"> <!--添加移动网站ICO图标-->
-
-<!--CSS,JS-->
-	 <!--文件引入-->
-	  <link rel="stylesheet" href="css/codemirror.css">
-	  <!--theme 皮肤设置-->	 
-	  <link rel="stylesheet" href="css/seti.css">
-	  <!--codemirror 核心JS-->
-	  <script type="text/javascript" src="js/codemirror.js"></script>
-	  <!--mode JS风格, css java c++ html-->
-	  <script type="text/javascript" src="js/javascript.js"></script>
-	  <script type="text/javascript" src="js/css.js"></script>
-	  <script type="text/javascript" src="js/xml.js"></script>
-	  <script type="text/javascript" src="js/htmlmixed.js"></script>
-<style>
-	*{margin:0; padding:0;}
-	/*编辑器初始化区块 start*/
-	body{font-size:12px; font-family:'微软雅黑'; background:#000;}
-	.wid{width:33.3%; float:left;}
-	.main{width:100%; background:#ccc; height:300px;}
-	.main .cssdom,.main .htmldom,.main .jsdom{overflow:auto; }
-	p{background:#373737; color:#0c0; line-height:40px; height:40px; text-indent:30px; font-size:14px;}
-	/*编辑器初始化区块 end*/
-
-	/*--获取源代码 start--*/
-	.getbtn{text-decoration:none; color:#FFF; display:block;width:100%; height:30px; background:#247b43;float:left; text-align:center; line-height:30px; transition:1s all;}
-	.getbtn:hover{background:#7ca62f;color:#FFF;}
-	.iframes{width:100%;position:absolute; top:381px; left:0;}
-	#preview{width:100%;   height:585px; color:green;  border:none; }
-	/*--获取源代码 end--*/
-</style>	
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>CC《呈琛》学习笔记管理</title>
+  <meta name="description" content="这是一个 index 页面">
+  <meta name="keywords" content="index">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <link rel="icon" type="image/png" href="assets/i/favicon.png">
+  <link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">
+  <meta name="apple-mobile-web-app-title" content="Amaze UI" />
+  <link rel="stylesheet" href="assets/css/amazeui.min.css"/>
+  <link rel="stylesheet" href="assets/css/admin.css">
+  <style>
+    html,body{width:100%; height:100%; overflow: hidden;}
+    .if-right{width:100%;border:none;}
+  </style>
 </head>
-	<body>
-<div class="main">
-<!----------------------CSS样式区   编辑器初始化区块------------------------------------------------------>
-<div class="wid cssdom">
-<p class="cssp">CSS编辑器初始化区块</p>
-<textarea id="csseditor">
-<style type="text/css">
-*{margin:0; padding:0;}
-h1{color:green;}
+<body>
+<!--[if lte IE 9]>
+<p class="browsehappy">你正在使用<strong>过时</strong>的浏览器，暂不支持。 请 <a href="http://browsehappy.com/" target="_blank">升级浏览器</a>
+  以获得更好的体验！</p>
+<![endif]-->
 
-</style>
-</textarea>
+<header class="am-topbar am-topbar-inverse admin-header">
+  <div class="am-topbar-brand">
+    <strong>CC</strong> <small>学习笔记管理</small>
+  </div>
+
+  <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#topbar-collapse'}"><span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span></button>
+
+  <div class="am-collapse am-topbar-collapse" id="topbar-collapse">
+
+    <ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list">
+      <li><a href="javascript:;"><span class="am-icon-envelope-o"></span> 收件箱 <span class="am-badge am-badge-warning">5</span></a></li>
+      <li class="am-dropdown" data-am-dropdown>
+        <a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">
+          <span class="am-icon-users"></span> 管理员 <span class="am-icon-caret-down"></span>
+        </a>
+        <ul class="am-dropdown-content">
+          <li><a href="#"><span class="am-icon-user"></span> 资料</a></li>
+          <li><a href="#"><span class="am-icon-cog"></span> 设置</a></li>
+          <li><a href="#"><span class="am-icon-power-off"></span> 退出</a></li>
+        </ul>
+      </li>
+      <li class="am-hide-sm-only"><a href="javascript:;" id="admin-fullscreen"><span class="am-icon-arrows-alt"></span> <span class="admin-fullText">开启全屏</span></a></li>
+    </ul>
+  </div>
+</header>
+
+<div class="am-cf admin-main">
+  <!-- sidebar start -->
+  <div class="admin-sidebar am-offcanvas" id="admin-offcanvas">
+    <div class="am-offcanvas-bar admin-offcanvas-bar">
+      <ul class="am-list admin-sidebar-list">
+        <li><a href="index.html"><span class="am-icon-home"></span> 首页</a></li>
+
+        <!--第一周：数据类型、判断、循环、数组 start-->
+        <li class="admin-parent">
+          <a class="am-cf" data-am-collapse="{target: '#collapse-nav'}"><span class="am-icon-file"></span> 第一周：数据类型、判断、循环、数组 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
+          <ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav">
+
+            <li><a href="container/ECMAScript/ZFScript/day1/1-node.html" target="show" class="am-cf"><span class="am-icon-check"></span>01.前端开发概括<span class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span></a></li>
+            <li><a href="container/ECMAScript/ZFScript/day1/2-node.html" target="show" class="am-cf"><span class="am-icon-check"></span>02.css、js引入在html 页面中的几种方式<span class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span></a></li>
+
+            <li><a href="container/ECMAScript/ZFScript/day1/3-node.html" target="show" class="am-cf"><span class="am-icon-check"></span>03.js中常用的四种输出方式<span class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span></a></li>
+
+            <li><a href="container/ECMAScript/ZFScript/day1/4-node.html" target="show" class="am-cf"><span class="am-icon-check"></span>05.js组成和命名规范<span class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span></a></li>
+
+            <li><a href="container/ECMAScript/ZFScript/day1/5-node.html" target="show" class="am-cf"><span class="am-icon-check"></span>05.js中的变量和数据类型<span class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span></a></li>
+
+            <li><a href="container/ECMAScript/ZFScript/day1/6-node.html" target="show" class="am-cf"><span class="am-icon-check"></span>06.数据类型 number<span class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span></a></li>
+
+            <li><a href="container/ECMAScript/ZFScript/day1/7-node.html" target="show" class="am-cf"><span class="am-icon-check"></span>07.数据类型-boolean和数据类型转换规律<span class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span></a></li>
+
+            <li><a href="container/ECMAScript/ZFScript/day1/8-node.html" target="show" class="am-cf"><span class="am-icon-check"></span>08.数据类型-object<span class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span></a></li>
+
+            <li><a href="container/ECMAScript/ZFScript/day1/9-node.html" target="show" class="am-cf"><span class="am-icon-check"></span>09.数据类型区分和数据类型检测<span class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span></a></li>
+
+            <li><a href="container/ECMAScript/ZFScript/day1/10-node.html" target="show" class="am-cf"><span class="am-icon-check"></span>10.js中三个判断的语法<span class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span></a></li>
+
+            <li><a href="container/ECMAScript/ZFScript/day1/11-node.html" target="show" class="am-cf"><span class="am-icon-check"></span>11.js中判断的应用[开关灯]<span class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span></a></li>
+
+            <li><a href="container/ECMAScript/ZFScript/day1/12-node.html" target="show" class="am-cf"><span class="am-icon-check"></span>12.js中三个循环之for循环<span class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span></a></li>
+
+            <li><a href="container/ECMAScript/ZFScript/day1/13-node.html" target="show" class="am-cf"><span class="am-icon-check"></span>13.js中三个循环之for in循环<span class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span></a></li>
+
+            <li><a href="container/ECMAScript/ZFScript/day1/14-node.html" target="show" class="am-cf"><span class="am-icon-check"></span>14.js中循环的应用[隔行变色]<span class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span></a></li>
+
+            <li><a href="container/ECMAScript/ZFScript/day1/15-node.html" target="show" class="am-cf"><span class="am-icon-check"></span>15.数据类型-function<span class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span></a></li>
+
+            <li><a href="container/ECMAScript/ZFScript/day1/16-node.html" target="show" class="am-cf"><span class="am-icon-check"></span>16.综合案例-选项卡<span class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span></a></li>
+
+            <li><a href="container/ECMAScript/ZFScript/day1/17-node.html" target="show" class="am-cf"><span class="am-icon-check"></span>17.综合案例-99乘法表[开关灯]<span class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span></a></li>
+          </ul>
+        </li>
+        <!--第一周：数据类型、判断、循环、数组 end-->
+
+        <!--第一周：数据类型、判断、循环、数组 start-->
+        <li class="admin-parent">
+          <a class="am-cf" data-am-collapse="{target: '#collapse-nav'}"><span class="am-icon-file"></span>常用代码工具整理<span class="am-icon-angle-right am-fr am-margin-right"></span></a>
+          <ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav">
+
+            <li><a href="container/Tools/codetools/index.html" target="show" class="am-cf"><span class="am-icon-check"></span>01.CC代码在线编辑器工具<span class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span></a></li>
+          </ul>
+        </li>
+        <!--第一周：数据类型、判断、循环、数组 end-->
+
+        <li><a href="#"><span class="am-icon-table"></span> 表格</a></li>
+        <li><a href="#"><span class="am-icon-pencil-square-o"></span> 表单</a></li>
+        <li><a href="#"><span class="am-icon-sign-out"></span> 注销</a></li>
+      </ul>
+
+      <div class="am-panel am-panel-default admin-sidebar-panel">
+        <div class="am-panel-bd">
+          <p><span class="am-icon-bookmark"></span> 公告</p>
+          <p>时光静好，与君语；细水流年，与君同。—— 呈琛</p>
+        </div>
+      </div>
+
+      <div class="am-panel am-panel-default admin-sidebar-panel">
+        <div class="am-panel-bd">
+          <p><span class="am-icon-tag"></span> wiki</p>
+          <p>Welcome to the cc wiki!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- sidebar end -->
+
+  <!-- content start -->
+  <div class="admin-content">
+    <div class="admin-content-body">
+      <div class="am-g">
+        <div class="am-u-sm-12">
+          <iframe class="if-right" name="show" id="iframe" src="container/ECMAScript/ZFScript/day1/1-node.html">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- content end -->
+
 </div>
-<!-----------------------HTML样式区  编辑器初始化区块-------------------------------------------->
-<div class="wid htmldom">
-<p class="htmlp">HTML编辑器初始化区块</p>
-<textarea id="htmleditor">
-<!doctype html>
-<html lang="en">
-	<head>
-			<meta charset="UTF-8">
-			<meta name="Generator" content="CC1.0®">
-			<meta name="Author" content="CC">
-			<mate name="copyright" content="版权信息">
-			<title>CC代码在线编辑器工具</title>
-			<meta name="Keywords" content="关键字,关键字">
-			<meta name="Description" content="网页内容描述信息">
-			<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" /><!--移动端-->
-			<link rel="shortcut icon" href="ico.ico">   <!--添加PC网站ICO图标-->
-			<link rel="apple-touch-icon" href="ico.ico"> <!--添加移动网站ICO图标-->
-	</head>
-	<body>
-		<h1>CC代码在线编辑器工具</h1>
-	</body>
-</html>
-</textarea>
-</div>
-	
-<!---------------------JS代码区      编辑器初始化区块-------------------------------------------------->	
-<div class="wid jsdom">
-<p class="jsp">js编辑器初始化区块</p>
-<textarea id="jseditor">
-<script type="text/javascript">
-	(function(){
-		
-	}());
+
+<a href="#" class="am-icon-btn am-icon-th-list am-show-sm-only admin-menu" data-am-offcanvas="{target: '#admin-offcanvas'}"></a>
+<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="assets/js/amazeui.ie8polyfill.min.js"></script>
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/amazeui.min.js"></script>
+<script src="assets/js/app.js"></script>
+<script>
+  var oIframe = document.getElementById("iframe");
+  var wH = document.documentElement.clientHeight || document.body.clientHeight;
+  oIframe.style.height = wH+"px";
 </script>
-</textarea>
-</div> 
-</div>
-
-<!--获取源代码-->
-<a class="getbtn" href="javascript:void(0);" onclick="setPreview()">点击效果预览</a>
-<!--实时预览效果-->
-<iframe id="preview" name="preview"></iframe>
-
-
-	   
-<!--javascript-------------------------------------------------------------->
-	  <script tyep="text/javascript">
-		//  css 编辑器初始化区块
-		var csseditorDom = document.getElementById("csseditor");
-		var cssMirror = CodeMirror.fromTextArea(csseditorDom,{
-			mode:"text/css", // 编辑的模式
-			lineNumbers:true, // 显示行号
-			theme:"seti", // 皮肤
-			tabSize:4	// 显示空号
-		});
-
-		//  HTML 编辑器初始化区块
-		var htmleditorDom = document.getElementById("htmleditor");
-		var htmlMirror = CodeMirror.fromTextArea(htmleditorDom,{
-			mode:"htmlmixed",	// HTML编辑的模式
-			lineNumbers:true, // 显示行号
-			theme:"seti", // 皮肤
-			tabSize:4	// 显示空号
-		});
-
-		// js 编辑器初始化区块
-		var jseditorDom = document.getElementById("jseditor");
-		var jsMirror = CodeMirror.fromTextArea(jseditorDom,{
-			mode:"javascript",	// 编辑的模式
-			lineNumbers:true, // 显示行号
-			theme:"seti", // 皮肤
-			tabSize:4	// 显示空号
-		});
-		// 实时预览
-		function getSource(){
-			// alert(htmlMirror.getValue());
-			// htmlMirror.getValue());
-			// htmlMirror.setValue("<p>dddd</p>");
-		}
-		
-		// 本地存储数据
-		 window.onload = function(){
-				// CSS 回调函数 代码实时显示
-				cssMirror.on("change",function(){
-					setPreview();
-					setEditorDate();
-				});
-				// HTML 回调函数 代码实时显示
-				htmlMirror.on("change",function(){
-					setPreview();
-					setEditorDate();
-				});
-
-				if(window.localStorage){
-				var cssData = localStorage.getItem("css_editor_data");
-				var htmlData = localStorage.getItem("html_editor_data");
-				var jsData = localStorage.getItem("js_editor_data");
-				
-				cssMirror.setValue(cssData);
-				htmlMirror.setValue(htmlData);
-				jsMirror.setValue(jsData);
-				};
-		 };
-		
-		function setPreview(){
-			var cssSource = cssMirror.getValue();
-			var htmlSource = htmlMirror.getValue();
-			var jsSource = jsMirror.getValue();
-			// 设置到iframe里		
-			var iframe = window.frames["preview"];
-			preview.document.open();
-			preview.document.write(cssSource);
-			preview.document.write(htmlSource);
-			preview.document.write(jsSource);
-			preview.document.close();
-		}
-		
-		// 代码时实保存
-		function setEditorDate(){
-			var cssSource = cssMirror.getValue();
-			var htmlSource = htmlMirror.getValue();
-			var jsSource = jsMirror.getValue();
-			if(window.localStorage){
-				localStorage.setItem("css_editor_data",cssSource);
-				localStorage.setItem("html_editor_data",htmlSource);
-				localStorage.setItem("js_editor_data",jsSource);
-				}
-		};
-	  </script>
-	</body>
+</body>
 </html>

@@ -1,0 +1,35 @@
+ *{margin:0; padding:0;}
+  body{font-family: "Hiragino Sans GB","Microsoft Yahei",arial,\5b8b\4f53,"Helvetica Neue",Helvetica,STHeiTi,sans-serif; background:#000;}
+  a{text-decoration:none;}
+  ul,li{list-style:none;}
+  .clear{clear:both;}
+
+
+  .contents{background:#ddd;}
+  .contents .header{background:#008080;  }
+  .contents .header .h-top{position:fixed; top:0; width:100%;}
+  .contents .header .hbox{height:50px; background:rgba(0,130,114,1); position:relative; top:0; }
+  .contents .header .hbox .hicon{width:50px; height:50px; position:absolute; top:0; line-height:50px; text-align:center; font-size:14px; color:#FFF;}
+  .contents .header .hbox .hicon:first-child{left:20px;}
+  .contents .header .hbox .hicon:last-child{right:20px;}
+  .contents .header .hbox h1{text-align:center; height:50px; line-height:50px; color:#FFF;}
+
+  .contents .main{margin:50px auto; background:#000; }
+  .contents .main .mheadsbox, .conbox{padding:10px;}
+  .contents .main .mheadsbox .mul{display:inline-block; width:100%;}
+  .contents .main .mheadsbox .mul li{height:30px; line-height:30px; padding:0 10px; float:left; margin:10px; background:rgba(0,130,114,1); border-radius:5px;}
+  .contents .main .mheadsbox .mul li > a{color:#FFF; font-size:12px;}
+
+
+  .contents .main .conbox .conuls{ background:#FFF; border-radius:5px; overflow:hidden;}
+  .contents .main .conbox .conuls li{margin-bottom:10px;}
+  .contents .main .conbox .conuls li{margin-bottom:10px;}
+  .contents .main .conbox .conuls li h3{padding-left:5px; color:#FFF; background:#12b45f; height:40px; line-height:40px; font-weight:600; }
+
+  .contents .main .conbox .conuls li .nodes{padding:10px 20px;}
+  .contents .main .conbox .conuls li .nodes h4{margin:10px 0; color:#008080;}
+  .contents .main .conbox .conuls li .nodes > p{font-size:16px; color:#666; padding:5px 0;}
+  .contents .main .conbox .conuls li .nodes .lastp{padding-bottom:10px; color:red;}
+  .contents .main .conbox .conuls li .nodes pre{background:#f7f7f7; display:block; padding:5px 10px; border-radius:5px;} 
+  .contents .main .conbox .conuls li .nodes pre code{font-size:14px; color:red; font-size:14px; font-family: "Hiragino Sans GB",arial,\5b8b\4f53,"Helvetica Neue",Helvetica,STHeiTi,sans-serif; }
+  .contents .main .conbox .conuls li .nodes pre code span{color:green;}

@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <title>10、js中三个判断的语法</title>
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <!--css-->
+  <link rel="stylesheet" href="dist/css/index.css">
+ </head>
+ <body>
+  <section class="contents">
+	<header class="header">
+		<section class="h-top">
+			<article class="hbox">
+				<a href="#" class="hicon">返回</a>
+				<h1>十、js中三个判断的语法</h1>
+				<a href="#" class="hicon">分享</a>
+			</article>
+		</section>		
+	</header>
+	<section class="main">
+		<article class="mheadsbox">
+			<ul class="mul">
+				<li><a href="#li1">一、JS里的三个判断：if else、 三元运算符?、switch case</a></li>
+				<li><a href="#li2">二、 if else</a></li>
+				<li><a href="#li3">三、 三元运算符</a></li>
+				<li><a href="#li4">四、switch case</a></li>				
+			</ul>
+		</article>
+		<section class="conbox">
+			<ul class="conuls">
+				<li>
+					<h3><a name="li1">一、JS里的三个判断：if else、 三元运算符?、switch case</a></h3>		
+					<article class="nodes">
+						<h4><a name="li101">1. if、else if、else 是最常用的判断，可以解决js中所有的判断需求</a></h4>
+						<h4><a name="li102">2. 三元运算符应该用简单的if else情况</a></h4>
+						<h4><a name="li103">3. switch case 应用于不同值情况下的不同操作</a></h4>						
+				</li>				
+				<li>				 
+					<h3><a name="li2">二、 if else</a></h3>
+					<article class="nodes">						
+						<h4><a name="li201">1. if else判断条件</a></h4>
+<pre>
+<code>
+ /*
+ if(条件1){
+	执行条件1成立的js代码
+ }else if(条件2){
+	执行条件2成立的js代码
+ }else if(条件3){
+	执行条件3成立的js代码
+ }...
+ else{
+	以上所有的条件都不成立执行的代码
+ }*/
+ 
+
+<mark>if 中的条件可以是小于、大于、等于、也可以是单独的一个值(判断当前值代表的是真还是假)</mark>
+
+<mark>if中的条件还可以是多个小的条件组合 中间用||(只要有一个为真整体就为真)和&&(所有的小条件都为真 整体才为真) 隔开</mark>
+
+
+if([]){ <mark>// 代表的是真</mark>
+	console.log("[]");
+}	<mark>// []</mark>	
+
+
+ var num = 10;		
+ if(num &lt; 0){
+	console.log("负数");
+ }else if(num &gt;= 0 && num &lt;= 10){
+	console.log("0-10之间");
+ }else if(num &gt; 10){
+	console.log("10以上");
+ }	<mark>// 0-10之间</mark>
+
+
+ if(num &lt; 0){
+	console.log("负数");
+ }else if(num &gt;= 0 && num &lt;= 10){
+	console.log("0-10之间");
+ }else{
+	console.log("10以上");
+ }	<mark>// 0-10之间</mark>
+</code>
+</pre>					
+					</article>
+				</li>
+				<li>				 
+					<h3><a name="li3">三、 三元运算符</a></h3>
+					<article class="nodes">						
+						<h4><a name="li301">1. 条件? 条件成立执行:条件不成立执行;</a></h4>
+						<p></p>
+						
+<pre>
+<code>		
+		<mark>// 一个if else 改用 三元运算符来写</mark>
+			var num = 12;
+			if(num >= 0){
+				console.log("正数或零");
+			}else{
+				console.log("负数");
+			} <mark>// 正数或零</mark>
+			
+			num >= 0? console.log("正数或零"):console.log("负数");
+
+
+		<mark>// 一行if 改用 三元运算符来写如下：void 0就是一个空 什么也没有</mark>
+			if(num > 0){
+				console.log("正数或零");
+			} <mark>//正数或零</mark>
+			num >= 0? console.log("正数或零 "):void 0;  <mark>//正数或零</mark>
+
+</code>
+</pre>					
+					</article>
+				</li>
+				<li>				 
+					<h3><a name="li4">四、switch case</a></h3>
+					<article class="nodes">						
+						<h4><a name="li401">1.一行if 改用 switch case来写如下</a></h4>
+						<p><mark>// 一行if 改用 switch case来写如下</mark></p>
+<pre>
+<code>		
+var num = 10;
+if(num == 0){
+	console.log("0");
+}else if(num == 5){
+	console.log("5");
+}else if(num == 10){
+	console.log("10");
+}else{
+	console.log("NaN");
+};  <mark>// 10</mark>
+
+</code>
+</pre>
+	<p><mark>// 第一种 case 情况下载都要加 break; 如果不加 break，不管后面的代码是否成立都执行了;</mark></p>
+	<p><mark>// 每次一种 case 情况相当于 === 的比较，一定要注意数据类型是否一致;</mark></p>
+
+<pre>
+<code>
+var num = 10;
+switch(num){
+	case 0:				
+		console.log("0");
+		break;
+	case 5:
+		console.log("5");
+		break;
+	case 10:
+		console.log("10");
+		break;
+	default:
+		console.log("NaN");
+} <mark>// 10</mark>
+
+</code>
+</pre>
+					</article>
+				</li>
+				</li>				
+			</ul>
+		</section>
+	
+	</section>
+  </section>
+
+  
+  <!--js
+  <script>
+  
+  </script>-->
+ </body>
+</html>

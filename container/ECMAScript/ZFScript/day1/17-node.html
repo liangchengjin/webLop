@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <title>17、综合案例-99乘法表[开关灯]</title>
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <!--css-->
+  <link rel="stylesheet" href="dist/css/index.css">
+ </head>
+ <body>
+  <section class="contents">
+	<header class="header">
+		<section class="h-top">
+			<article class="hbox">
+				<a href="#" class="hicon">返回</a>
+				<h1>十七、综合案例-99乘法表</h1>
+				<a href="#" class="hicon">分享</a>
+			</article>
+		</section>		
+	</header>
+	<section class="main">
+		<article class="mheadsbox">
+			<ul class="mul">
+				<li><a href="#li1">一、综合案例-99乘法表</a></li>
+				<li><a href="#li101">1.99乘法表</a></li>
+
+
+				<li><a href="#li2">二、第一个版本-注释版</a></li>
+				<li><a href="#li201">1.注释版+switch case</a></li>
+				<li><a href="#li3">三、第二个版本：优化版</a></li>
+				<li><a href="#li301">1.优化版</a></li>
+			</ul>
+		</article>
+		<section class="conbox">
+			<ul class="conuls">
+				<li>				 
+					<h3><a name="li1">一、综合案例-99乘法表</a></h3>
+					<article class="nodes">						
+						<h4><a name="li101">1.99乘法表</a></h4>
+						<div class="demo">
+							<style>
+								 ul, li{list-style:none;}
+								 #tab{/*position:absolute; top:50%; left:50%; margin-left:-450px; margin-top:-145px; width:900px;*/ border:1px solid #ddd; border-radius:10px; padding:10px;}								  
+								 #tab li{height:30px; line-height:30px;}								  
+								 #tab li span{width:100px; height:30px; display:inline-block; text-align:center;}
+								 .c1{background:#ff9900;}
+								 .c2{background:#9900ff;}
+								 .c3{background:#009900;}
+							</style>
+							<div id="tab"></div>
+
+							<!--js-->
+							<script>
+								  var oTab = document.getElementById("tab");
+								  var str = "";
+								  str+="<ul>";
+									for(var i = 1; i <= 9; i++){ // 这是行
+										var val = "c1";				
+										str+="<li>";
+											for(var j = 1; j <= i; j++){  // 这是列
+												str+="<span  class='"+val+"'>";
+													str+=""+j+" * "+i+" = "+(j*i)+"";
+												str+="</span>";
+											}
+										str+="</li>";
+									}
+								  str+="</ul>";
+
+								  oTab.innerHTML = str;
+								  var oSpans = oTab.getElementsByTagName("span");
+								  for(var i = 0; i < oSpans.length; i++){
+									oSpans[i].className = "c"+(i%3+1);
+								  }
+							</script>
+						</div>
+
+						<h4><a name="li01">代码</a></h4>
+						<p></p>
+<pre>
+<code>
+	&lt;!doctype html&gt;
+	&lt;html lang="en"&gt;
+	 &lt;head&gt;
+	  &lt;meta charset="UTF-8"&gt;
+	  &lt;meta name="Generator" content="EditPlus®"&gt;
+	  &lt;meta name="Author" content=""&gt;
+	  &lt;title&gt;17、综合案例-99乘法表&lt;/title&gt;
+	  &lt;meta name="Keywords" content=""&gt;
+	  &lt;meta name="Description" content=""&gt;
+	  &lt;meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"&gt;
+	  &lt;!--css--&gt;
+	  &lt;style&gt;
+	  *{margin:0; padding:0;}
+	  body{font-family: "Hiragino Sans GB","Microsoft Yahei",arial,\5b8b\4f53,"Helvetica Neue",Helvetica,STHeiTi,sans-serif;}
+	  ul, li{list-style:none;}
+
+	  #tab{
+		position:absolute;
+		top:50%;
+		left:50%;
+		margin-left:-450px;
+		margin-top:-145px;
+		width:900px; 
+		border:1px solid red; 
+		border-radius:10px;
+		padding:10px;
+		}
+	  
+	  #tab li{
+		height:30px;
+		line-height:30px;
+		}
+	  
+	  #tab li span{
+		width:100px;
+		height:30px;
+		display:inline-block;
+		text-align:center;
+		}
+
+	  .c1{background:#ff9900;}
+	  .c2{background:#9900ff;}
+	  .c3{background:#009900;}
+	  &lt;/style&gt;
+	 &lt;/head&gt;
+	 &lt;body&gt;
+		&lt;div id="tab"&gt;&lt;/div&gt;
+	&lt;!--js--&gt;
+	&lt;script&gt;
+		  var oTab = document.getElementById("tab");
+		  var str = "";
+		  str+="&lt;ul&gt;";
+			for(var i = 1; i &lt;= 9; i++){ // 这是行
+				var val = "c1";				
+				str+="&lt;li&gt;";
+					for(var j = 1; j &lt;= i; j++){  // 这是列
+						str+="&lt;span  class='"+val+"'&gt;";
+							str+=""+j+" * "+i+" = "+(j*i)+"";
+						str+="&lt;/span&gt;";
+					}
+				str+="&lt;/li&gt;";
+			}
+		  str+="&lt;/ul&gt;";
+
+		  oTab.innerHTML = str;
+		  var oSpans = oTab.getElementsByTagName("span");
+		  for(var i = 0; i &lt; oSpans.length; i++){
+			oSpans[i].className = "c"+(i%3+1);
+		  }
+	&lt;/script&gt;
+ &lt;/body&gt;
+&lt;/html&gt;
+</code>
+</pre>
+					</article>
+				</li>
+				<li>
+					<h3><a name="li2">二、第一个版本-注释版</a></h3>		
+					<article class="nodes">
+						<h4><a name="li201">1.注释版+switch case</a></h4>
+						<p></p>
+<pre>
+<code>
+	  var oTab = document.getElementById("tab");
+	  var str = "";
+	  str+="&lt;ul&gt;";
+		for(var i = 1; i &lt;= 9; i++){ <mark>// 这是行</mark>
+			var val = "c1";
+			switch(i%3){
+				case 0:
+					val = "c1";
+					break;
+				case 1:
+					val = "c2";
+					break;
+				default:
+					val = "c3";
+			}
+
+			str+="&lt;li class='"+val+"'&gt;";
+				for(var j = 1; j &lt;= i; j++){  <mark>// 这是列</mark>
+					str+="&lt;/span&gt;";
+						str+=""+j+" * "+i+" = "+(j*i)+"";
+					str+="&lt;/span&gt;";
+				}
+			str+="&lt;/li&gt;";
+		}
+	  str+="&lt;/ul&gt;";
+
+	  oTab.innerHTML = str;
+
+	  <mark>// innerHTML: 向指定元素中添加内容(可以是文字，也可以是html标签), innerHTML可以识别html标签的</mark>
+
+	  <mark>// innerText:不能识别html标签</mark>
+
+	  <mark>// 字符拼接的第一条黄金法则：单双不能同进用外面是"", 里面就需要是'',外是'', 里面需要是"";</mark>
+
+	  <mark>// 字符拼接的第二条黄金法则：如果一个字符串中需要把变量的值放进来，需要增加一个变量，看外面是""还是'', 如果是"",那么直接的"+变量+",如果是'',则'+变量+'</mark>
+
+</code>
+</pre>
+					</article>
+				</li>
+
+				<li>
+					<h3><a name="li3">三、第二个版本：优化版</a></h3>					
+					<article class="nodes">
+						<h4><a name="li301">1.优化版</a></h4>
+						<p></p>
+<pre>
+<code>
+		  var oTab = document.getElementById("tab");
+		  var str = "";
+		  str+="&lt;ul&gt;";
+			for(var i = 1; i &lt;= 9; i++){ <mark>// 这是行</mark>
+				var val = "c1";				
+				str+="&lt;li&gt;";
+					for(var j = 1; j &lt;= i; j++){  <mark>// 这是列</mark>
+						str+="&lt;span  class='"+val+"'&gt;";
+							str+=""+j+" * "+i+" = "+(j*i)+"";
+						str+="&lt;/span&gt;";
+					}
+				str+="&lt;/li&gt;";
+			}
+		  str+="&lt;/ul&gt;";
+
+		  oTab.innerHTML = str;
+		  var oSpans = oTab.getElementsByTagName("span");
+		  for(var i = 0; i &lt; oSpans.length; i++){
+			oSpans[i].className = "c"+(i%3+1);
+		  }
+</code>
+</pre>
+					</article>
+				</li>
+			</ul>
+		</section>
+	
+	</section>
+  </section>
+
+  
+  <!--js
+  <script>
+  
+  </script>-->
+ </body>
+</html>

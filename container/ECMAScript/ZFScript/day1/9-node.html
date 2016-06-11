@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <title>09、数据类型区分和数据类型检测</title>
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <!--css-->
+  <link rel="stylesheet" href="dist/css/index.css">
+ </head>
+ <body>
+  <section class="contents">
+	<header class="header">
+		<section class="h-top">
+			<article class="hbox">
+				<a href="#" class="hicon">返回</a>
+				<h1>九、数据类型区分和数据类型检测</h1>
+				<a href="#" class="hicon">分享</a>
+			</article>
+		</section>		
+	</header>
+	<section class="main">
+		<article class="mheadsbox">
+			<ul class="mul">
+				<li><a href="#li1">一、基本数据类型和引用数据类型的区别</a></li>
+				<li><a href="#li101">1.腾讯面试题</a></li>						
+				<li><a href="#li2">二、基本数据和引用数据类型的本质区别</a></li>						
+				<li><a href="#li201">1.基本数据类型</a></li>						
+				<li><a href="#li3">三、js中检测数据类型的方式</a></li>						
+				<li><a href="#li301">1.type 是用来检测数据类型的:typeof 要检查的值</a></li>					
+								
+			</ul>
+		</article>
+		<section class="conbox">
+			<ul class="conuls">
+				<li>
+					<h3><a name="li1">一、基本数据类型和引用数据类型的区别</a></h3>		
+					<article class="nodes">
+						<h4><a name="li101">-1.腾讯面试题</a></h4>
+						<p></p>
+<pre>
+<code>
+var num1 = 12;
+var num2 = num1;			<mark>// 把num1变量代表的值给了 num2 变量 </mark>
+num2++;					<mark>// 相当于 num2 = num2+1 在自己原有值的基础上加1 也可能写成 num2+=1;</mark>
+console.log(num2);
+
+
+var obj1 = {name:"赵子龙"};
+var obj2 = obj1
+obj2.name = "常山赵子龙(赵云)";
+console.log(obj1.name);
+
+// 发现：基本数据类型没有跟着改变，引用数据类型跟着也改变了
+</code>
+</pre>				
+					</article>
+				</li>
+
+				<li>
+					<h3><a name="li2">二、基本数据和引用数据类型的本质区别：</a></h3>					
+					<article class="nodes">						
+						<p>一句话来说明：基本数据类型操作的是值，而引用数据类型操作的是对新空间的引用地址</p>
+						<h4><a name="li201">-1.基本数据类型是把值直接的给变量，接下来在操作的过程中，直接拿这个值操作的，可能两个变量存储一样的值，但是你的是你的，我的是我的，之间没有关系，基本一个改变，另一个没有任何的影响</a></h4>
+						<p>引用数据类型：</p>
+<pre>
+<code>
+			
+1).定义一个变量
+2).开辟一个新的空间，然后把属性名和属性值保存在这个空间中，并且有一个空间地址
+3).把空间的地址给了这个变量，变量并没有存储这个数值，而是存储的是对这个空间引用地址
+4).接下来我们把这个地址，又告诉给了另外一个变量，另外一个变量存储的也是这个地址，此进两个变量操作的是同一个空间
+5).其中一个改变了的内容，另外一个也跟着改变了
+
+//赵子龙
+//李连杰
+
+// 基本数据类型：
+	赵子龙开了一个淘宝店，卖的是吃的(湖南长沙臭豆腐)
+	李连杰也开了一个淘宝店，卖的和赵子龙店里的东西一样
+
+// 引用数据类型：
+	赵子龙开了一个淘宝店，卖的是吃的(湖南长沙臭豆腐)
+	赵子龙有一个店的账号地址
+	李连杰拿到了赵子龙的账号址址
+</code>
+</pre>			
+					</article>
+				</li>
+
+				<li>				 
+					<h3><a name="li3">三、js中检测数据类型的方式</a></h3>
+					<article class="nodes">
+						<p>typeof 运算符</p>			
+						<p>instanceof 运算符</p>			
+						<p>constructor</p>			
+						<p> Object.prototype.toString.call()</p>
+						<h4><a name="li301">-1.type 是用来检测数据类型的:typeof 要检查的值</a></h4>
+						<p>typeof null的结果是 "object"</p>
+						
+<pre>
+<code>
+
+			typeof 1			<mark>//	"number"</mark>
+			typeof true			<mark>//	"boolean"</mark>
+			typeof undefined		<mark>//	"undefined"</mark>
+			typeof null			<mark>//	"object"</mark>
+			typeof {}			<mark>//	"object"</mark>
+			typeof []			<mark>//	"object"</mark>
+			typeof /^$/			<mark>//	"object"</mark>
+
+			typeof 的局限性：不能具体的检查object下细分的类型，检查这些返回的都是"object"
+				typeof function(){}				<mark>//	"function"</mark>
+
+				typeof function(){}				<mark>//	 "function"</mark>
+
+		
+				console.log(typeof("呈琛"));			<mark>// "string"</mark>
+				var num2 = 12;
+				console.log(typeof num2);			<mark>// number 把num2代表的值进行检测，检测是什么数据类型在</mark>
+
+		  一秒中回答，超过1秒钟后，就不能成功面试
+			console.log(typeof (typeof (typeof (typeof[]))));	<mark>// "string" 出现两个和两个以上的typeof的时候，最终结果都是"string"</mark>
+			
+				typeof []		===> "object"
+				typeof "object"	===> "string"
+				typeof "string" ===> "string"
+			
+</code>
+</pre>			
+					</article>
+				</li>
+			</ul>
+		</section>
+	
+	</section>
+  </section>
+  <!--js
+  <script>
+  
+  </script>-->
+ </body>
+</html>

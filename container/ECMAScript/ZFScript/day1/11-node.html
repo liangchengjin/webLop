@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <title>11、js中判断的应用[开关灯]</title>
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <!--css-->
+  <link rel="stylesheet" href="dist/css/index.css">
+ </head>
+ <body>
+  <section class="contents">
+	<header class="header">
+		<section class="h-top">
+			<article class="hbox">
+				<a href="#" class="hicon">返回</a>
+				<h1>十一、js中判断的应用[开关灯]</h1>
+				<a href="#" class="hicon">分享</a>
+			</article>
+		</section>		
+	</header>
+	<section class="main">
+		<article class="mheadsbox">
+			<ul class="mul">
+				<li><a href="#li1">一.首先获取body</a></li>
+				<li><a href="#li2">二.让body有一个可以点击的功能</a></li>							
+				<li><a href="#li3">三.点击的时候执行我们的换颜色操作</a></li>							
+				<li><a href="#li301">-1.普通版</a></li>							
+				<li><a href="#li302">-2.this优化版</a></li>							
+				<li><a href="#li303">-3.用三元运算符版</a></li>							
+				<li><a href="#li304">-4. 多个 if else if判断版</a></li>							
+				<li><a href="#li305">-5.用switch case 来写</a></li>							
+				<li><a href="#li4">四.用switch case 背景换色</a></li>							
+			</ul>
+		</article>
+		<section class="conbox">
+			<ul class="conuls">
+				<li>
+					<h3><a name="li1">一.首先获取body</a></h3>		
+					<article class="nodes">
+						<h4><a name="li01">-1.document.getElementById("元素标签的ID值");</a></h4>
+<pre>
+<code>
+document	文档	<mark>称之为上下文(什么是上下文呢？就是: context 限定我们获取元素的范围)</mark>
+get		获取
+Element		一个元素
+By		通过
+Id		元素的ID
+
+<mark>在事件文档中，通过元素的ID获取一个元素</mark>
+</code>
+</pre>
+					</article>
+				</li>
+
+				<li>
+					<h3><a name="li2">二.让body有一个可以点击的功能</a></h3>					
+					<article class="nodes">
+<pre>
+<code>
+元素.onclick = function(){
+	点击的时候我们要处理的事情
+}
+
+<mark>给一个元素绑定点击事件</mark>		 
+</code>
+</pre>
+					</article>
+				</li>
+				<li>				 
+					<h3><a name="li3">三.点击的时候执行我们的换颜色操作</a></h3>
+					<article class="nodes">					
+						<p>1)每一次点击的时候，都要先获取当前的背景颜色</p>
+<pre>
+<code>			
+元素.style.backgroundColor 获取当前元素在"行内样式上的" 背景颜色
+</code>
+</pre>
+						<p>2)根据颜色让背景变成其它的颜色</p>					
+						
+						<h4><a name="li301">-1.普通版</a></h4>						
+<pre>
+<code>
+		var oBody = document.getElementById("bodyEle");
+		oBody.onclick = function(){
+			//alert("中国深圳");
+			//alert(oBody.style.backgroundColor);		<mark>// 获取行内样式上的颜色</mark>
+			//alert(oBody.style.width);			<mark>// 获取行内样式上的宽度</mark>
+
+			var bg = oBody.style.backgroundColor;
+			if(bg == "white"){
+				oBody.style.backgroundColor = "black";
+			}else{
+				oBody.style.backgroundColor = "white";
+			}
+		}
+</code>
+</pre>
+
+						<h4><a name="li302">-2.优化版</a></h4>						
+<pre>
+<code>
+var oBody = document.getElementById("bodyEle");
+oBody.onclick = function(){	
+	var bg = this.style.backgroundColor;
+	if(bg === "white"){
+		this.style.backgroundColor = "black";
+	}else{
+		this.style.backgroundColor = "white";
+	}
+}
+
+
+<mark>// 在绑定的事件中，this就是当前我们点击的这个元素</mark>
+</code>
+</pre>
+						<h4><a name="li303">-3.用三元运算符版</a></h4>						
+<pre>
+<code>
+var oBody = document.getElementById("bodyEle");
+oBody.onclick = function(){
+	var bg = this.style.backgroundColor;
+	bg === "white"? this.style.background = "black": this.style.background = "white";
+}
+</code>
+</pre>
+						<h4><a name="li304">-4. 多个 if else if判断版</a></h4>						
+<pre>
+<code>		
+var oBody = document.getElementById("bodyEle");
+oBody.onclick = function(){
+	var bg = this.style.backgroundColor;
+	if(bg === "white"){
+		this.style.backgroundColor = "blue";
+	}else if(bg === "blue"){
+		this.style.backgroundColor = "red";
+	}else if(bg === "red"){
+		this.style.backgroundColor = "yellow";
+	}else if(bg === "yellow"){
+		this.style.backgroundColor = "green";
+	}else{
+		this.style.backgroundColor = "white";
+	}
+}
+			
+</code>
+</pre>
+						<h4><a name="li305">-5.用switch case 来写</a></h4>						
+						<p>用switch case 来写</p>
+<pre>
+<code>
+&gt;style&lt;
+*{margin:0; padding:0;}
+html,body{font-family: "Hiragino Sans GB","Microsoft Yahei",arial,\5b8b\4f53,"Helvetica Neue",Helvetica,STHeiTi,sans-serif;
+width:100%;
+height:100%;
+width:100%;
+cursor:pointer;
+-webkit-user-select:none;
+line-height:800px;
+text-align:center;
+font-size:100px;
+color:green;
+border:5px solid #DDD;
+border-radius:10px;
+}
+&gt;/style&lt;
+
+&gt;div id="bodyEle" style="background-color:white;"&lt;请点击中间的空白的区域&gt;div&lt;
+
+var oBody = document.getElementById("bodyEle");
+oBody.onclick = function(){
+	var bg = this.style.backgroundColor;
+	switch (bg){
+		case "white":
+			this.style.backgroundColor = "blue";
+			break;
+		case "blue":
+			this.style.backgroundColor = "red";
+			break;
+		case "red":
+			this.style.backgroundColor = "yellow";
+			break;
+		case "yellow":
+			this.style.backgroundColor = "green";
+			break;
+		default:
+			this.style.backgroundColor = "white";
+	}
+}
+</code>
+</pre>
+					</article>
+				</li>
+				<li>				 
+					<h3><a name="li4">四、用switch case 来写的项目</a></h3>
+					<article class="nodes">						
+						<h4><a name="li401">-1.点击背景换项目</a></h4>
+						<div class="demo">
+							 <div class="demo">
+							  <style>
+								  #bodyEle{
+								   width:100%;
+								   height:800px;
+								   cursor:pointer;
+									-webkit-user-select:none;
+									line-height:800px;
+									text-align:center;
+									font-size:100px;
+									color:green;
+									border:5px solid #DDD;
+									border-radius:10px;
+								  }								
+								  
+							  </style>
+							  <div id="bodyEle" style="background-color:white;">请点击中间的空白的区域<div>
+
+							<!--js-->
+							<script>
+								var oBody = document.getElementById("bodyEle");
+								oBody.onclick = function(){
+									var bg = this.style.backgroundColor;
+									switch (bg){
+										case "white":
+											this.style.backgroundColor = "blue";
+											break;
+										case "blue":
+											this.style.backgroundColor = "red";
+											break;
+										case "red":
+											this.style.backgroundColor = "yellow";
+											break;
+										case "yellow":
+											this.style.backgroundColor = "green";
+											break;
+										default:
+											this.style.backgroundColor = "white";
+									}
+								}
+							</script>
+						</div>
+					</article>
+				</li>
+			</ul>
+		</section>
+	
+	</section>
+  </section>
+
+  
+  <!--js
+  <script>
+  
+  </script>-->
+ </body>
+</html>
