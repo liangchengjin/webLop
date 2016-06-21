@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <title>20、数组去重</title>
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <!--css-->
+  <link rel="stylesheet" href="dist/css/index.css">
+ </head>
+ <body>
+  <section class="contents">
+	<header class="header">
+		<section class="h-top">
+			<article class="hbox">
+				<a href="#" class="hicon">返回</a>
+				<h1>二十、数组去重</h1>
+				<a href="#" class="hicon">分享</a>
+			</article>
+		</section>		
+	</header>
+	<section class="main">
+		<article class="mheadsbox">
+			<ul class="mul">
+				<li><a href="#li1">第一种 双for循环数组去重，不推荐这样使用，也不是我们想要的</a></li>
+				<li><a href="#li2">二、第二种：数组去重用对象的方式 推荐使用</a></li>							
+			</ul>
+		</article>
+		<section class="conbox">
+			<ul class="conuls">
+				<li>
+					<h3><a name="li1">一、第一种 双for循环数组去重</a></h3>		
+					<article class="nodes">
+						<h4><a name="li01">1.不推荐这样使用，也不是我们想要的。</a></h4>
+<pre>
+<code>
+var ary = [1,2,1,2,1,2,3,4,2,3,4,1,2,3,4,3,2,1,4,5,2,3];		
+<mark>// 当前和后一项进行对比，如果相同就删除后一项</mark>
+for(var i = 0; i < ary.length-1; i++){
+	var cur = ary[i]; <mark>// 第一次i=0;</mark>  
+	console.log(cur);
+	<mark>// i=0 第一次循环 开始比较的索引是1到末尾</mark>
+	<mark>// i=1 第二次循环 开始比较的索引是2到末尾</mark>
+	<mark>// 开始比较的索引是 i+1</mark>
+	<mark>// 通过splice删除，原有的数组改变了，删除的那个索引以后的所有项的索引都往前提了一位</mark>
+	for(var j =i+1; j < ary.length; j++){  
+		<mark>// j=1 2 1 == 2 进行比较</mark>
+		<mark>// j=2 1 1 == 1 进行比较，把索引2这项删掉 j-- j=1</mark>
+		<mark>// j=2 2 1==2</mark>
+		if(cur == ary[j]){
+			ary.splice(j,1);
+			j--;
+		}
+	}
+}
+console.log(ary);
+<mark>
+/*		
+Array[5]
+	0: 1
+	1: 2
+	2: 3
+	3: 4
+	4: 5
+	length: 5
+	__proto__: Array[0]
+
+*/</mark>
+
+</code>
+
+					</article>
+				</li>
+
+				<li>
+					<h3><a name="li2">二、第二种：数组去重用对象的方式 推荐使用</a></h3>					
+					<article class="nodes">
+						<h4><a name="li201">1.数组去重用对象的方式 推荐使用</a></h4>						
+<pre>
+<code>
+		var ary = [1,2,45,,23,68,79,55,2,1,2,3,4,2,3,4,1,2,3,4,3,2,1,4,5,2,3];
+		var obj = {};
+		for(var i = 0; i < ary.length; i++){
+			var cur = ary[i];
+			if(obj[cur] == cur){
+				ary.splice(i, 1);
+				i--;
+				continue;
+			}
+			obj[cur] = cur;
+		}
+		obj = null;
+		console.log(ary);  <mark>// [1, 2, 45, 23, 68, 79, 55, 3, 4, 5]<、mark>
+		
+	<mark>/*
+	var obj = {};
+	obj[1] = 1 // 增加一个属性名1， 属性值也就是1
+	obj[2] = 2;// 修改属性名1的属性值为2，一个对象中的属性名不能重复
+
+
+	 把数组中的每一项，当做一个对象的属性名和属性值存起来，在存储的时候，判断当前的属性名是否已经存在，存在了就代表数组该项重复了，我们直接的删除，否则就代不重复，我们直接存储就好了
+
+	 var obj = {};
+	 obj[1] = 1;
+	 if(obj[2] == 2 只有这样才能代表存在) 存在 我们就删除
+	 obj[2] = 2;
+	 if(obj[1] == 1){ary.splice(){
+	 ....
+	 }} 
+	*/<、mark>
+	
+</code>
+</pre>
+					</article>
+				</li>
+
+			</ul>
+		</section>
+	
+	</section>
+  </section>
+ </body>
+</html>

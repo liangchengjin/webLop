@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <title>19、数组应用之冒泡排序</title>
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <!--css-->
+  <link rel="stylesheet" href="dist/css/index.css">
+ </head>
+ <body>
+  <section class="contents">
+	<header class="header">
+		<section class="h-top">
+			<article class="hbox">
+				<a href="#" class="hicon">返回</a>
+				<h1>十九、数组应用之冒泡排序</h1>
+				<a href="#" class="hicon">分享</a>
+			</article>
+		</section>		
+	</header>
+	<section class="main">
+		<article class="mheadsbox">
+			<ul class="mul">
+				<li><a href="#li1">冒泡排序</a></li>
+				<li><a href="#li100">1.冒泡排序</a></li>
+				<li><a href="#li101">-1.案例加注释版的</a></li>
+				<li><a href="#li102">-2.优化版 升序</a></li>
+				<li><a href="#li103">-3.不加注释版的</a></li>				
+			</ul>
+		</article>
+		<section class="conbox">
+			<ul class="conuls">
+				<li>
+					<h3><a name="li1">一、冒泡排序、快速排序、插入排序</a></h3>		
+					<article class="nodes">
+						<h4><a name="li100">1.冒泡排序</a></h4>
+<pre>
+<code>
+var ary = [12, 10, 13, 8, 4];
+// target:[4,8,10,12,13]
+</code>
+</pre>
+<p>冒泡排序的思想：当前项和后一项进行比较，如果当前项大于后一项，两者交换位置</p>
+<p>交换位置:</p>
+<p>第一轮:</p>
+<p>[10,12,13,8,4]&nbsp;&nbsp;&nbsp;&nbsp;第一次比较	12 跟 10 比较 也就是说10 和12已经比完了，结下来如下</p>
+<p>[10,12,13,8,4]&nbsp;&nbsp;&nbsp;&nbsp;第二次比较  12 跟 13比</p>
+<p>[10,12,8,13,4]&nbsp;&nbsp;&nbsp;&nbsp;第三次比较  13 跟  8比</p>
+<p>[10,12,8,4,13]&nbsp;&nbsp;&nbsp;&nbsp;第四交比较  13 跟  4比 //一共5个数，我们前后比较，第一项不用和自己比(自己就是12,也就是说12不能和自己12相比，它会和下一个相比)，所以最多比较4次：我们最多比较的次数是 ary.length-1次，</p>
+						<p>第二轮</p>
+						<p>第一轮结束，虽然没有大到最终的目的，但是已经反当前最大的放在最后面了，也就是 一共5个数，我们每一轮都将当前最大的放在后面，那我们放四个最大的就是实现排序了，就是：最多比较ary.length-1轮	</p>
+						<p>[10,12,8,4,13]</p>
+						<p>[10,8,12,4,13]</p>
+						<p>[10,8,4,12,13]</p>
+						<p>第三轮</p>
+						<p>[8,10,4,12,13]</p>
+						<p>[8,4,10,12,13]</p>
+						<p>第四轮</p>
+						<p>[4,8,10,12,13]</p>						
+						<p>i控制轮娄 i从0开始的话
+						<p>i=0是第一轮&nbsp;&nbsp;&nbsp;&nbsp;比较 ary.length-1-0次</p>
+						<p>i=1是第二轮&nbsp;&nbsp;&nbsp;&nbsp;比较 ary.length-1-1次</p>
+						<p>i=2是第三轮&nbsp;&nbsp;&nbsp;&nbsp;比较 ary.lnegth-1-2次</p>
+						<p>....</p>
+						<p>i是第n+1轮 比较 ary.length-1-i次/<p>
+						<p>当、当前项大于后一项，交换位置/<p>
+						<p>var a = 12;<p>
+						<p>var b= 13;<p>
+						<p>var c = null<p>
+						<p>c=a;<p>
+						<p>a=b;<p>
+						<p>b=c;<p>	
+
+						<h4><a name="li101">-1.案例加注释版的</a></h4>
+<pre>
+<code>		
+function sortAry(ary){
+	<mark>// i 代表是轮数, 比较 ary.length-1轮</mark>
+	<mark>// i = 0 ary.length-1-0</mark>
+	<mark>// i = 1 ary.length-1-1</mark>
+	<mark>// ary.length-1-i</mark>
+	for(var i = 0; i < ary.length-1; i++){
+		<mark>// j 代表的是每一轮比较多少次，不用和自己比较ary.length-1，把之前放在后面的也排除，在减去i</mark>
+		for(var j = 0; j < ary.length-1-i; j++){
+			var cur = ary[j]
+			var next = ary[j+1];
+			<mark>// 如果当前项大于后一项，两才交换位置</mark>
+			if(cur > next){							 
+				var temp = ary[j];
+				ary[j] = ary[j+1];
+				ary[j+1] = temp;
+			}
+		}
+	}
+}
+var ary = [12, 10, 13, 8, 4];
+sortAry(ary);
+console.log(ary); <mark> // [4, 8, 10, 12, 13]</mark>
+
+</code>
+</pre>
+						<h4><a name="li102">-2.优化版 升序</a></h4>					
+						
+<pre>
+<code>
+
+function sortAry(ary, type){
+	<mark>// type 0 代表升序 1 代表降序 如果不传默认也是升序：只有1是降序</mark>
+
+	<mark>// i 代表是轮数, 比较 ary.length-1轮</mark>
+		<mark>//i = 0 ary.length-1-0</mark>
+		<mark>//i = 1 ary.length-1-1</mark>
+		<mark>//ary.length-1-i</mark>
+	for(var i = 0; i < ary.length-1; i++){
+		<mark>// j 代表的是每一轮比较多少次，不用和自己比较ary.length-1，把之前放在后面的也排除，在减去i</mark>
+		for(var j = 0; j < ary.length-1-i; j++){
+			var cur = ary[j]
+			var next = ary[j+1];
+			<mark>// 如果当前项大于后一项，两才交换位置</mark>
+
+			if(cur > next){							 
+				var temp = ary[j];
+				ary[j] = ary[j+1];
+				ary[j+1] = temp;
+			}
+		}
+	}
+
+	if(type === 1){
+		ary.reverse();
+	}
+}
+var ary = [12, 10, 13, 8, 4];
+sortAry(ary);
+console.log(ary);  <mark>// [4, 8, 10, 12, 13]</mark>		
+</code>
+</pre>
+						<h4><a name="li103">-3.不加注释版的</a></h4>					
+						
+<pre>
+<code>
+function sortAry(ary, type){
+	for(var i = 0; i < ary.length-1; i++){			
+			<mark>// i=0; i小于ary.length-1;</mark>
+			
+		for(var j = 0; j < ary.length-1-i; j++){
+			if(ary[j] > ary[j+1]){
+				var temp = ary[j];
+				ary[j] = ary[j+1];
+				ary[j+1] = temp;
+			}
+		}
+	}
+
+	type === 1?ary.reverse() : void 0;
+};
+
+var ary = [12,34,23,45,23,12,23,24,35,1,26,37,45];
+sortAry(ary,0);  <mark>// [45, 45, 37, 35, 34, 26, 24, 23, 23, 23, 12, 12, 1]</mark>
+
+sortAry(ary,0);  <mark>// [1, 12, 12, 23, 23, 23, 24, 26, 34, 35, 37, 45, 45]</mark>
+console.log(ary);
+
+</code>
+</pre>
+
+					</article>
+				</li>
+				</li>
+			</ul>
+		</section>
+	
+	</section>
+  </section>
+
+  
+  <!--js
+  <script>
+  
+  </script>-->
+ </body>
+</html>
